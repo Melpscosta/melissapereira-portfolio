@@ -11,7 +11,6 @@ export const projetosDetalhados: Record<string, {
     descricao: "Sistema interno para controle de entregas, notificações e interface aprimorada para o time operacional.",
     tecnologias: ["React", "TypeScript", "Firebase"],
     imagem: "../../public/assets/mottu.jpg",
-    link: "https://mottu.com.br",
     github: "https://github.com/Melpscosta/mottu"
   },
   "conexao-solidaria": {
@@ -33,7 +32,7 @@ export const projetosDetalhados: Record<string, {
     descricao: "Sistema online para agendamento de consultas em clínicas populares, com foco em acessibilidade.",
     tecnologias: ["Vue.js", "Laravel", "MySQL"],
     imagem: "/assets/marcacao.png",
-    github: "https://github.com/Melpscosta/marcacao-consultas"
+    github: "https://github.com/Melpscosta/marcacaoDeConsultasMedicas.git"
   },
   "porto-seguro": {
     titulo: "Porto Seguro",

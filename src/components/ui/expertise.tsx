@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Layout, Server, CloudCog} from "lucide-react";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -12,19 +13,19 @@ export default function MyExpertise() {
     {
       titulo: ['FrontEnd'],
       cor: 'text-pink-400 underline decoration-pink-400',
-      icone: '💻',
+      icone: <Layout className=" text-pink-400" />,
       texto:'Experiência com HTML, CSS, Tailwind, JavaScript, TypeScript, React, React Native e Vite. Habilidade em criar interfaces responsivas e intuitivas para web e mobile.',
     },
     {
       titulo: ['BackEnd'],
       cor: 'text-blue-400 underline decoration-blue-400',
-      icone: '⚛️',
+      icone: '🛠️',
       texto: 'Conhecimento em Python, Java, C++ e bancos de dados com SQL e PL/SQL. Capacidade de realizar a integração entre front-end e back-end de forma eficiente.',
     },
     {
       titulo: ['Infraestrutura e Tecnologias Emergentes'],
       cor: 'text-orange-400 underline decoration-orange-400',
-      icone: '📱',
+      icone: '☁️',
       texto:
         'Familiaridade com AWS, MVs e Docker para ambientes de desenvolvimento e implantação. Conhecimentos em IA e IoT. Experiência com Power Automate para a otimização de processos internos',
     },
