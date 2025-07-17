@@ -25,7 +25,10 @@ export default function Footer() {
       className="mt-32 mb-10 px-4 text-center text-sm text-neutral-600 dark:text-neutral-500"
     >
       <p>
-        Aberta a colaborações freelance com propósito. Se você tem um projeto especial e acha que podemos construir algo incrível juntos, vou adorar ouvir sua ideia. Me mande um e-mail — vamos conversar!
+          <h2 className="text-3xl font-semibold mb-6 text-center">Aberta a colaborações freelance com propósito.</h2>
+      </p>
+      <p>
+        Se você tem um projeto especial e acha que podemos construir algo incrível juntos, vou adorar ouvir sua ideia. Me mande um e-mail — vamos conversar!
       </p>
       <p className="mt-1">
         Contato:{" "}

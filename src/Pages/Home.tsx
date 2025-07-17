@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import MyWork from "../components/ui/myWork";
 
+import Exp from "../components/ui/Exp"
+
 import Expertise from "../components/ui/expertise";
 import {
   Carousel,
@@ -9,8 +11,6 @@ import {
 } from "@/components/ui/carousel";
 import { motion } from "framer-motion";
 import Footer from "@/components/ui/Footer";
-
-
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -41,76 +41,93 @@ const fadeInUp = {
   },
 ]; */
 
-
 const certificados = [
-  "Certificado 1",
-  "Certificado 2",
-  "Certificado 3",
-  "Certificado 4",
+  {
+    nome: 'Estratégias e Modelos de Negócios - FIAP',
+    pdf: '/certificados/doc.pdf',
+    imagem: '/assets/business.jpg',
+  },
+  {
+    nome: 'Python - FIAP',
+    pdf: '/certificados/py.pdf',
+    imagem: '/assets/Py.jpg',
+  },
 ];
 
-export default function MelissaPortfolio() {
 
+export default function MelissaPortfolio() {
   useEffect(() => {
-  console.log(
-    `%cOi curioso👋 Seja bem-vindo(a) ao meu portfólio!`,
-    'color: #ec4899; font-size: 16px; font-weight: bold;'
-  );
-}, []);
+    console.log(
+      `%cOi curioso👋 Seja bem-vindo(a) ao meu portfólio!`,
+      "color: #ec4899; font-size: 16px; font-weight: bold;"
+    );
+  }, []);
 
   return (
-<main className="bg-white dark:bg-neutral-950 text-black dark:text-white font-sans min-h-screen px-6 pb-16 scroll-smooth">
-  <section id="home" className="pt-32 pb-24">
-    <div className="max-w-4xl mx-auto px-4 text-center space-y-6">
-      <motion.h1
-        {...fadeInUp}
-        className="text-6xl md:text-7xl font-extrabold tracking-tight uppercase text-black dark:text-white"
-      >
-        Melissa Pereira da Costa
-      </motion.h1>
-
-      <motion.p
-        {...fadeInUp}
-        transition={{ delay: 0.2 }}
-        className="text-lg md:text-xl text-neutral-700 dark:text-neutral-400 font-mono tracking-wide"
-      >
-        Desenvolvedora full-stack apaixonada por front-end e design.
-        <br />
-        Atualmente na FIAP, com foco futuro em Design Gráfico na Anhembi Morumbi.
-        <br />
-        Gosto de transformar ideias em interfaces visuais marcantes e funcionais.
-      </motion.p>
-    </div>
-  </section>
-
-  <Expertise />
-
-  <motion.section {...fadeInUp} className="mt-32 text-center">
-    <h2 className="text-2xl font-medium mb-6">Certificados</h2>
-    <Carousel>
-      <CarouselContent className="flex overflow-x-auto gap-4 px-4">
-        {certificados.map((certificado, index) => (
-          <CarouselItem
-            key={index}
-            className="min-w-[240px] bg-white dark:bg-neutral-800 text-black dark:text-white p-4 rounded-md hover:scale-105 transition-transform duration-300 shadow-md"
+    <main className="bg-white dark:bg-neutral-950 text-black dark:text-white font-sans min-h-screen px-6 pb-16 scroll-smooth">
+      <section id="home" className="pt-32 pb-24">
+        <div className="max-w-4xl mx-auto px-4 text-center space-y-6">
+          <motion.h1
+            {...fadeInUp}
+            className="text-6xl md:text-7xl font-extrabold tracking-tight uppercase text-black dark:text-white"
           >
-            {certificado}
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-    </Carousel>
-  </motion.section>
+            Melissa Pereira da Costa
+          </motion.h1>
 
-  <MyWork />
+          <motion.p
+            {...fadeInUp}
+            transition={{ delay: 0.2 }}
+            className="text-lg md:text-xl text-neutral-700 dark:text-neutral-400 font-mono tracking-wide"
+          >
+            Tenho 21 anos, sou desenvolvedora full stack com foco em front-end.
+            <br />
+            Busco unir tecnologia e criatividade para criar experiências digitais marcantes.
+          </motion.p>
+        </div>
+      </section>
 
-  <motion.section {...fadeInUp} id="experiencia" className="mt-32 px-4">
-    <h2 className="text-2xl font-medium mb-6 text-center">Experiência</h2>
-    <p className="text-neutral-700 dark:text-neutral-300 max-w-2xl mx-auto text-justify leading-relaxed">
-      Atuei com Power Automate, VBA, SharePoint, projetos na Mottu e Porto Seguro, além de vivências acadêmicas na FIAP, desenvolvendo APIs, interfaces web e lógica de programação.
-    </p>
-  </motion.section>
+      <Expertise />
 
- {/*  <motion.section
+      <motion.section {...fadeInUp} className="mt-32 text-center">
+  <h2 className="text-4xl font-bold mb-10 text-center">
+        Certificados
+      </h2>
+  <Carousel>
+    <CarouselContent className="flex overflow-x-auto gap-10 px-80  ">
+      {certificados.map((certificado, index) => (
+        <CarouselItem
+          key={index}
+          className="min-w-[240px] bg-white dark:bg-neutral-800 text-black dark:text-white p-4 rounded-md hover:scale-105 transition-transform duration-300 shadow-md"
+        >
+          <a
+            href={certificado.pdf}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block"
+          >
+            <div className="w-full h-40 overflow-hidden rounded-md mb-2">
+              <img
+                src={certificado.imagem}
+                alt={certificado.nome}
+                className="object-contain w-full h-full rounded-md"
+              />
+            </div>
+            <p className="text-center font-semibold">{certificado.nome}</p>
+          </a>
+        </CarouselItem>
+      ))}
+    </CarouselContent>
+  </Carousel>
+</motion.section>
+
+
+      <MyWork />
+
+      <Exp />
+
+    
+
+      {/*  <motion.section
     {...fadeInUp}
     id="final"
     className="mt-32 mb-10 text-center text-sm text-neutral-600 dark:text-neutral-500"
@@ -152,8 +169,7 @@ export default function MelissaPortfolio() {
     </div>
   </motion.section>
  */}
-  <Footer/>
-</main>
-
+      <Footer />
+    </main>
   );
 }

@@ -19,7 +19,9 @@ export default function MyWork() {
       id="projetos"
       className="mt-32 max-w-7xl mx-auto px-4 text-center"
     >
-      <h2 className="text-3xl font-semibold mb-6">My Work</h2>
+      <h2 className="text-4xl font-bold mb-10 text-center">
+        Projetos
+      </h2>
       <p className="text-neutral-300 max-w-2xl mx-auto text-sm mb-12">
         Desenvolvi soluções escaláveis para web e mobile, em SPA e PWA com
         React. Já colaborei com mais de 50 projetos no Brasil e no mundo.
