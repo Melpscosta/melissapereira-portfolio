@@ -31,13 +31,13 @@ export const projetosDetalhados: Record<string, {
   "porto-seguro": {
     titulo: "Cyber Cheetahs – Porto Seguro",
     descricao: "Plataforma para diagnóstico inteligente de veículos, prontuário automotivo e capacitação de mecânicos.",
-    tecnologias: ["React", "Firebase", "UX/UI", "Node.js"],
+    tecnologias: ["React", "UX/UI", "Node.js"],
     imagem: "/assets/porto.jpg"
   },
   "ecolar": {
     titulo: "Ecolar",
     descricao: "WebApp que calcula a pegada de carbono doméstica e sugere ações para redução de custos e emissões.",
-    tecnologias: ["React", "Node.js", "MySQL", "IoT (opcional)"],
+    tecnologias: ["React", "Node.js", "MySQL"],
     imagem: "/assets/ecolar.jpg"
   }
 };
