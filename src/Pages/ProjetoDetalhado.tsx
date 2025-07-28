@@ -19,38 +19,41 @@ export default function ProjetoDetalhado() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen max-w-3xl mx-auto px-6 py-24 text-white"
+      className="min-h-screen max-w-5xl mx-auto px-6 py-24 text-white"
     >
-      <h1 className="text-4xl font-bold mb-4">{projeto.titulo}</h1>
-      <p className="text-neutral-300 mb-8">{projeto.descricao}</p>
+      {/* Título */}
+      <h1 className="text-4xl font-bold mb-6 text-pink-400">{projeto.titulo}</h1>
 
-      <div className="mb-8">
-        <h2 className="text-xl font-semibold mb-2 text-pink-400">Tecnologias usadas:</h2>
-        <ul className="list-disc list-inside text-neutral-300">
-          {projeto.tecnologias.map((tech, idx) => (
-            <li key={idx}>{tech}</li>
-          ))}
-        </ul>
-      </div>
-
+      {/* Imagem principal */}
       {projeto.imagem && (
         <img
           src={projeto.imagem}
           alt={projeto.titulo}
-          className="rounded-md mb-8 w-full object-cover"
+          className="rounded-xl mb-10 w-full h-80 object-cover shadow-lg border border-white/10"
         />
       )}
 
-      {projeto.link && (
-        <a
-          href={projeto.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded transition"
-        >
-          Ver Projeto Online
-        </a>
-      )}
+      {/* Descrição */}
+      <p className="text-lg text-neutral-300 mb-12 leading-relaxed">
+        {projeto.descricao}
+      </p>
+
+      {/* Tecnologias */}
+      <div>
+        <h2 className="text-2xl font-semibold text-white mb-4">
+          Tecnologias utilizadas
+        </h2>
+        <ul className="grid grid-cols-2 sm:grid-cols-3 gap-3 text-neutral-200 text-sm">
+          {projeto.tecnologias.map((tech, idx) => (
+            <li
+              key={idx}
+              className="bg-white/10 py-2 px-4 rounded-lg text-center hover:bg-pink-500 hover:text-white transition"
+            >
+              {tech}
+            </li>
+          ))}
+        </ul>
+      </div>
     </motion.div>
   );
 }

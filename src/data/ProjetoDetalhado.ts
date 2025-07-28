@@ -1,44 +1,43 @@
 export const projetosDetalhados: Record<string, {
-  github?: string;
   titulo: string;
   descricao: string;
   tecnologias: string[];
   imagem?: string;
-  link?: string;
 }> = {
   "mottu": {
-    titulo: "Mottu",
-    descricao: "Sistema interno para controle de entregas, notificações e interface aprimorada para o time operacional.",
-    tecnologias: ["React", "TypeScript", "Firebase"],
-    imagem: "../../public/assets/mottu.jpg",
-    github: "https://github.com/Melpscosta/mottu"
+    titulo: "Challenge Mottu",
+    descricao: "Sistema inteligente para mapeamento de pátios com QR Codes, BLE e IoT embarcado, otimizando localização de motos.",
+    tecnologias: ["React", "React Native", "Tailwind", "Supabase", "ESP32", "Node.js"],
+    imagem: "/assets/mottu.jpg"
   },
   "conexao-solidaria": {
     titulo: "Conexão Solidária",
-    descricao: "Plataforma web que conecta voluntários a ONGs, com painéis administrativos e suporte para doações.",
-    tecnologias: ["Next.js", "Tailwind", "Node.js"],
-    imagem: "/assets/conexao.png",
-    github: "https://github.com/Melpscosta/conexao-solidaria"
+    descricao: "App offline via Bluetooth Mesh para comunicação em áreas sem internet durante emergências e desastres naturais.",
+    tecnologias: ["React Native", "Java Spring Boot", "Docker", "BLE", "PostgreSQL"],
+    imagem: "/assets/conexao.png"
   },
   "agua-viva": {
     titulo: "Água Viva",
-    descricao: "Aplicativo mobile com alertas ambientais para regiões ribeirinhas. Funciona offline e coleta dados locais.",
-    tecnologias: ["Flutter", "Firebase", "Mapbox"],
-    imagem: "../../public/assets/aguaviva.jpg",
-    github: "https://github.com/Melpscosta/agua-viva"
+    descricao: "App de voluntariado ecológico que recompensa ações ambientais com experiências em viagens sustentáveis.",
+    tecnologias: ["Flutter", "Firebase", "Gamificação", "Mapbox"],
+    imagem: "/assets/aguaviva.jpg"
   },
   "marcacao-de-consultas-medicas": {
     titulo: "Marcação de Consultas Médicas",
-    descricao: "Sistema online para agendamento de consultas em clínicas populares, com foco em acessibilidade.",
+    descricao: "Sistema para agendamento online de consultas populares, com foco em usabilidade e acessibilidade ampla.",
     tecnologias: ["Vue.js", "Laravel", "MySQL"],
-    imagem: "/assets/marcacao.png",
-    github: "https://github.com/Melpscosta/marcacaoDeConsultasMedicas.git"
+    imagem: "/assets/marcacao.png"
   },
   "porto-seguro": {
-    titulo: "Porto Seguro",
-    descricao: "Dashboard para corretores acompanharem sinistros e propostas em tempo real, com visual moderno e responsivo.",
-    tecnologias: ["React", "Redux", "SASS"],
-    imagem: "../../public/assets/porto.jpg",
-    github: "https://github.com/Melpscosta/porto-seguro"
+    titulo: "Cyber Cheetahs – Porto Seguro",
+    descricao: "Plataforma para diagnóstico inteligente de veículos, prontuário automotivo e capacitação de mecânicos.",
+    tecnologias: ["React", "Firebase", "UX/UI", "Node.js"],
+    imagem: "/assets/porto.jpg"
+  },
+  "ecolar": {
+    titulo: "Ecolar",
+    descricao: "WebApp que calcula a pegada de carbono doméstica e sugere ações para redução de custos e emissões.",
+    tecnologias: ["React", "Node.js", "MySQL", "IoT (opcional)"],
+    imagem: "/assets/ecolar.jpg"
   }
 };
