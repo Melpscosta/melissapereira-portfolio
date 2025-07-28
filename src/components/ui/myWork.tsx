@@ -44,10 +44,26 @@ export default function MyWork() {
                 <h3 className="text-lg font-bold text-white mb-1 truncate w-full">
                   {proj.titulo}
                 </h3>
-                <p className="text-sm text-neutral-400">Web Development</p>
 
-                {/* Hover Button */}
-                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-6 w-full">
+                {/* Descrição curta */}
+                <p className="text-sm text-neutral-400 mb-3 line-clamp-3">
+                  {proj.descricao}
+                </p>
+
+                {/* Tecnologias em balões */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {proj.tecnologias.map((tech, index) => (
+                    <span
+                      key={index}
+                      className="bg-white/10 text-neutral-200 text-xs px-3 py-1 rounded-full hover:bg-pink-500 hover:text-white transition"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Botão */}
+                <div className="mt-auto w-full">
                   <Button
                     variant="outline"
                     className="border-white text-white w-full hover:bg-pink-500 hover:text-white transition"
