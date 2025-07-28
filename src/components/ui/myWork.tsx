@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import { projetosDetalhados } from "../../data/ProjetoDetalhado";
 
 const fadeInUp = {
@@ -28,9 +27,11 @@ export default function MyWork() {
         {slugs.map((slug, i) => {
           const proj = projetosDetalhados[slug];
           return (
-            <div
+            <a
               key={i}
-              className="group bg-neutral-900 border border-white/10 rounded-xl overflow-hidden transition-all hover:ring-1 hover:ring-pink-500 shadow-lg relative"
+              href={`/projetos/${slug}`}
+              className="group block bg-neutral-900 border border-white/10 rounded-xl overflow-hidden 
+                transition-all duration-300 hover:scale-[1.02] shadow-lg hover:shadow-pink-500/30"
             >
               {proj.imagem && (
                 <img
@@ -45,35 +46,23 @@ export default function MyWork() {
                   {proj.titulo}
                 </h3>
 
-                {/* Descrição curta */}
                 <p className="text-sm text-neutral-400 mb-3 line-clamp-3">
                   {proj.descricao}
                 </p>
 
-                {/* Tecnologias em balões */}
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-2 mt-auto">
                   {proj.tecnologias.map((tech, index) => (
                     <span
                       key={index}
-                      className="bg-white/10 text-neutral-200 text-xs px-3 py-1 rounded-full hover:bg-pink-500 hover:text-white transition"
+                      className="bg-white/10 text-neutral-200 text-xs px-3 py-1 rounded-full 
+                        hover:bg-pink-500 hover:text-white transition"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
-
-                {/* Botão */}
-                <div className="mt-auto w-full">
-                  <Button
-                    variant="outline"
-                    className="border-white text-white w-full hover:bg-pink-500 hover:text-white transition"
-                    onClick={() => (window.location.href = `/projetos/${slug}`)}
-                  >
-                    Show project
-                  </Button>
-                </div>
               </div>
-            </div>
+            </a>
           );
         })}
       </div>
