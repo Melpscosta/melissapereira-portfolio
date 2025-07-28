@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronUp, ChevronDown, MapPin } from "lucide-react"; // Corrigido aqui ✅
+import { motion } from "framer-motion";
 
 const experiencia = [
   {
@@ -19,7 +20,8 @@ export default function ExperienciaAccordion() {
   };
 
   return (
-    <section className="mt-32 px-4 max-w-4xl mx-auto text-white">
+    
+    <motion.section id="exp" className="mt-32 px-4 max-w-4xl mx-auto text-white">
       <h2 className="text-4xl font-bold mb-10 text-center">
         Experiência Profissional
       </h2>
@@ -71,6 +73,6 @@ export default function ExperienciaAccordion() {
           )}
         </div>
       ))}
-    </section>
+    </motion.section>
   );
 }

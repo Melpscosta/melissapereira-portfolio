@@ -13,7 +13,7 @@ export default function Header() {
         <nav className="flex gap-6">
           <a href="#home" className="hover:text-pink-400 transition">HOME </a>
           <a href="#projetos" className="hover:text-pink-400 transition">PROJETOS </a>
-          <a href="#experiencia" className="hover:text-pink-400 transition">EXPERIÊNCIA </a>
+          <a href="#exp" className="hover:text-pink-400 transition">EXPERIÊNCIA </a>
           <a href="#final" className="hover:text-pink-400 transition">FINAL</a>
         </nav>
 
