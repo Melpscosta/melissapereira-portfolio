@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { projetosDetalhados } from "../../data/ProjetoDetalhado";
 
@@ -26,10 +27,20 @@ export default function MyWork() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {slugs.map((slug, i) => {
           const proj = projetosDetalhados[slug];
+
+          // Redireciona para a página específica se for um dos projetos especiais
+          const linkDestino = {
+            "porto-seguro": "/projetos/porto",
+            "challenge-mottu": "/projetos/mottu",
+            "conexao-solidaria": "/projetos/conexao-solidaria",
+            "agua-viva": "/projetos/agua-viva",
+            "marcacao-de-consultas-medicas": "/projetos/marcacao-de-consultas-medicas",
+          }[slug] || `/projetos/${slug}`; // fallback para página genérica
+
           return (
-            <a
+            <Link
               key={i}
-              href={`/projetos/${slug}`}
+              to={linkDestino}
               className="group block bg-neutral-900 border border-white/10 rounded-xl overflow-hidden 
                 transition-all duration-300 hover:scale-[1.02] shadow-lg hover:shadow-pink-500/30"
             >
@@ -62,7 +73,7 @@ export default function MyWork() {
                   ))}
                 </div>
               </div>
-            </a>
+            </Link>
           );
         })}
       </div>
