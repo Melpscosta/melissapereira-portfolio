@@ -28,14 +28,13 @@ export default function MyWork() {
         {slugs.map((slug, i) => {
           const proj = projetosDetalhados[slug];
 
-          // Redireciona para a página específica se for um dos projetos especiais
           const linkDestino = {
             "porto-seguro": "/projetos/porto",
-            "challenge-mottu": "/projetos/mottu",
+            "mottu": "/projetos/mottu", 
             "conexao-solidaria": "/projetos/conexao-solidaria",
             "agua-viva": "/projetos/agua-viva",
             "marcacao-de-consultas-medicas": "/projetos/marcacao-de-consultas-medicas",
-          }[slug] || `/projetos/${slug}`; // fallback para página genérica
+          }[slug] || `/projetos/${slug}`;
 
           return (
             <Link
