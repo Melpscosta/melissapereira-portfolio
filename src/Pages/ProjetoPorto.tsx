@@ -15,8 +15,8 @@ export default function ProjetoPorto() {
         {...fadeInUp}
         className="pt-32 pb-20 max-w-4xl mx-auto text-center"
       >
-        <h1 className="text-4xl md:text-5xl font-extrabold text-pink-400 mb-4">
-          Porto Seguro – Plataforma Integrada de Manutenção Automotiva com IA
+        <h1 className="text-5xl md:text-5xl font-extrabold text-pink-400 mb-4">
+          Porto Seguro
         </h1>
         <p className="text-lg md:text-xl text-neutral-700 dark:text-neutral-400 max-w-3xl mx-auto">
           Pré-diagnóstico veicular com IA, agendamento online e precificação automática em uma experiência digital completa.
