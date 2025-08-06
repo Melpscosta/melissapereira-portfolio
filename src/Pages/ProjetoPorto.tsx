@@ -38,7 +38,6 @@ export default function ProjetoPorto() {
       <motion.section {...fadeInUp} className="mb-16 max-w-5xl mx-auto">
         <img
           src="/imagens/porto-mockup-1.png"
-          alt="Mockup do site da plataforma Porto"
           className="w-full rounded-xl border border-white/10 shadow-xl"
         />
       </motion.section>
@@ -57,7 +56,6 @@ export default function ProjetoPorto() {
       <motion.section {...fadeInUp} className="mb-16 max-w-5xl mx-auto">
         <img
           src="/imagens/porto-mockup-2.png"
-          alt="Design responsivo da plataforma"
           className="w-full rounded-xl border border-white/10 shadow-xl"
         />
       </motion.section>
@@ -80,7 +78,6 @@ export default function ProjetoPorto() {
       <motion.section {...fadeInUp} className="mb-16 max-w-5xl mx-auto">
         <img
           src="/imagens/porto-mockup-3.png"
-          alt="Interface de agendamento e IA"
           className="w-full rounded-xl border border-white/10 shadow-xl"
         />
       </motion.section>
@@ -89,7 +86,6 @@ export default function ProjetoPorto() {
       <motion.section {...fadeInUp} className="mb-16 max-w-5xl mx-auto">
         <img
           src="/imagens/porto-mockup-4.png"
-          alt="Fluxo da jornada digital"
           className="w-full rounded-xl border border-white/10 shadow-xl"
         />
       </motion.section>
@@ -106,7 +102,6 @@ export default function ProjetoPorto() {
       <motion.section {...fadeInUp} className="mb-32 max-w-5xl mx-auto">
         <img
           src="/imagens/porto-mockup-5.png"
-          alt="Resultado final da plataforma"
           className="w-full rounded-xl border border-white/10 shadow-xl"
         />
       </motion.section>
