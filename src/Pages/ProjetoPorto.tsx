@@ -33,10 +33,10 @@ export default function ProjetoPorto() {
               <li>›</li>
               <li>
                 <a
-                  href="/portfolio"
+                  href="/#myWork"
                   className="hover:underline hover:text-white"
                 >
-                  Portfolio
+                  Projetos
                 </a>
               </li>
               <li>›</li>
