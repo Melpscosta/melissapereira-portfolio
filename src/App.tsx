@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import Header from "./components/Header";
 import MyWork from "./components/myWork";
-
+import ScrollToTop from "./components/ScrollToTop"; // <- adicione isto
 
 // Projetos específicos
 import ProjetoPorto from "./Pages/ProjetoPorto";
@@ -14,11 +14,12 @@ import ProjetoMarcacaoConsultas from "./Pages/ProjetoMarcacaoConsultas";
 // Página genérica
 import ProjetoDetalhado from "./Pages/ProjetoDetalhado";
 
-// ...imports
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />   {/* <- garante topo ao trocar de rota */}
       <Header />
+
       <div className="pt-16">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -35,4 +36,5 @@ function App() {
     </BrowserRouter>
   );
 }
+
 export default App;
