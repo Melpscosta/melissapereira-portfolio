@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { projetosDetalhados } from "../../data/ProjetoDetalhado";
+import { projetosDetalhados } from "../data/ProjetoDetalhado";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },

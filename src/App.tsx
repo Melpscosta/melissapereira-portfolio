@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
-import Header from "./components/ui/Header";
-import MyWork from "./components/ui/myWork";
+import Header from "./components/Header";
+import MyWork from "./components/myWork";
 
 
 import ProjetoPorto from "./Pages/ProjetoPorto";

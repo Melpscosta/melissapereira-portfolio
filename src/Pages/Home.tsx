@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
-import MyWork from "../components/ui/myWork";
+import MyWork from "../components/myWork";
 
-import Exp from "../components/ui/Exp"
+import Exp from "../components/Exp"
 
-import Expertise from "../components/ui/expertise";
+import Expertise from "../components/expertise";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-} from "@/components/ui/carousel";
+} from "@/components/carousel";
 import { motion } from "framer-motion";
-import Footer from "@/components/ui/Footer";
+import Footer from "@/components/Footer";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
