@@ -1,45 +1,68 @@
 import { Link, useLocation } from "react-router-dom";
 
-const labels: Record<string, string> = {
-    "": "Home",
-    work: "Work",
-    expertise: "Expertise",
-    experience: "Experience",
-    contact: "Contact",
+const LABEL_OVERRIDES: Record<string, string> = {
+  "": "Home", // raiz
+  projetos: "Projetos",
+  // projetos específicos (adicione os seus aqui)
+  porto: "Porto Seguro",
+  mottu: "Mottu",
+  "conexao-solidaria": "Conexão Solidária",
+  "agua-viva": "Água Viva",
+  "marcacao-consultas": "Marcação de Consultas",
 };
 
+function slugToTitle(slug: string) {
+  if (!slug) return "Home";
+  // se houver override, usa
+  if (LABEL_OVERRIDES[slug]) return LABEL_OVERRIDES[slug];
+
+  // senão, formata “kebab-case” -> “Kebab Case”
+  return decodeURIComponent(slug)
+    .split("-")
+    .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
+    .join(" ");
+}
+
 export default function Breadcrumbs() {
-    const { pathname } = useLocation();
-    const parts = pathname
-    .replace(/^\/+|\/+$/g, "")
+  const { pathname } = useLocation();
+
+  // normaliza: tira barras duplicadas, leading/trailing slash
+  const parts = pathname
+    .replace(/\/+/g, "/")
+    .replace(/^\/|\/$/g, "")
     .split("/")
     .filter(Boolean);
-    const crumbs = parts.map((seg, i) => ({
-    path: "/" + parts.slice(0, i + 1).join("/"),
-    label: labels[seg] || seg.replace(/-/g, " "),
-    }));
 
-    return (
-    <nav aria-label="Breadcrumb" className="text-sm">
-        <ol className="flex flex-wrap gap-2 items-center">
+  // constrói crumbs cumulativos: /a, /a/b, /a/b/c...
+  const crumbs = parts.map((seg, i) => {
+    const path = "/" + parts.slice(0, i + 1).join("/");
+    const label = slugToTitle(seg);
+    return { path, label };
+  });
+
+  return (
+    <nav aria-label="breadcrumb" className="text-sm">
+     <ol className="flex flex-wrap gap-2 items-center">
         <li>
-        <Link to="/" className="opacity-80 hover:opacity-100">
+          <Link to="/" className="opacity-80 hover:opacity-100">
             Home
-        </Link>
+          </Link>
         </li>
         {crumbs.map((c, i) => (
-        <li key={c.path} className="flex items-center gap-2">
+          <li key={c.path} className="flex items-center gap-2">
             <span className="opacity-40">›</span>
             {i === crumbs.length - 1 ? (
-            <span className="font-medium">{c.label}</span>
-            ) : (
-            <Link to={c.path} className="opacity-80 hover:opacity-100">
+              <span className="font-medium text-neutral-500 dark:text-neutral-400">
                 {c.label}
-            </Link>
+              </span>
+            ) : (
+              <Link to={c.path} className="opacity-80 hover:opacity-100">
+                {c.label}
+              </Link>
             )}
-        </li>
+          </li>
         ))}
-    </ol>
+      </ol>
     </nav>
-);
+  );
 }
