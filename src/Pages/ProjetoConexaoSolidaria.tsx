@@ -1,61 +1,26 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 },
-};
+const fadeInUp = { initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.6 } };
 
 export default function ProjetoConexaoSolidaria() {
   const navigate = useNavigate();
 
   return (
     <main className="bg-white dark:bg-neutral-950 text-black dark:text-white font-sans min-h-screen px-6 pb-24 scroll-smooth">
-      {/* Header */}
       <div className="pt-28 max-w-5xl mx-auto">
         <div className="mb-6 flex items-center justify-between text-sm text-neutral-400">
-          <button
-            onClick={() => navigate("/")}
-            className="hover:text-white transition"
-          >
-            ← Voltar para Home
-          </button>
-
-          <nav>
-            <ol className="flex space-x-2">
-              <li>
-                <a href="/" className="hover:underline hover:text-white">
-                  Home
-                </a>
-              </li>
-              <li>›</li>
-              <li>
-                <a
-                  href="/portfolio"
-                  className="hover:underline hover:text-white"
-                >
-                  Portfolio
-                </a>
-              </li>
-              <li>›</li>
-              <li className="text-neutral-500 dark:text-neutral-400">
-                Conexão Solidária
-              </li>
-            </ol>
-          </nav>
+          <button onClick={() => navigate(-1)} className="hover:text-white transition">← Voltar</button>
+          <Breadcrumbs />
         </div>
 
         {/* Título + intro */}
         <motion.section {...fadeInUp} className="text-center mb-20">
-          <h1 className="text-5xl md:text-6xl font-extrabold text-pink-400 mb-4">
-            Conexão Solidária
-          </h1>
+          <h1 className="text-5xl md:text-6xl font-extrabold text-pink-400 mb-4">Conexão Solidária</h1>
           <p className="text-lg md:text-xl text-neutral-700 dark:text-neutral-400 max-w-3xl mx-auto">
-            Comunicação offline para emergências via rede Bluetooth Mesh. Troque
-            mensagens mesmo sem internet durante enchentes, apagões ou desastres
-            naturais.
+            Comunicação offline para emergências via rede Bluetooth Mesh.
           </p>
         </motion.section>
       </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import Breadcrumbs from "@/components/Breadcrumbs"; // ajuste o caminho se necessário
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -17,34 +18,12 @@ export default function ProjetoMarcacaoConsultas() {
       <div className="pt-28 max-w-5xl mx-auto">
         <div className="mb-6 flex items-center justify-between text-sm text-neutral-400">
           <button
-            onClick={() => navigate("/")}
+            onClick={() => navigate(-1)}
             className="hover:text-white transition"
           >
-            ← Voltar para Home
+            ← Voltar
           </button>
-
-          <nav>
-            <ol className="flex space-x-2">
-              <li>
-                <a href="/" className="hover:underline hover:text-white">
-                  Home
-                </a>
-              </li>
-              <li>›</li>
-              <li>
-                <a
-                  href="/portfolio"
-                  className="hover:underline hover:text-white"
-                >
-                  Portfolio
-                </a>
-              </li>
-              <li>›</li>
-              <li className="text-neutral-500 dark:text-neutral-400">
-                Marcação de Consultas
-              </li>
-            </ol>
-          </nav>
+          <Breadcrumbs />
         </div>
 
         {/* Título + intro */}
@@ -92,7 +71,7 @@ export default function ProjetoMarcacaoConsultas() {
           </ul>
         </motion.section>
 
-        {/* Imagens */}
+        {/* IMAGENS */}
         <motion.section
           {...fadeInUp}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"

@@ -1,5 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import { useNavigate } from "react-router-dom";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -8,20 +10,26 @@ const fadeInUp = {
 };
 
 export default function ProjetoMottu() {
+  const navigate = useNavigate();
+
   return (
     <main className="bg-white dark:bg-neutral-950 text-black dark:text-white font-sans min-h-screen px-6 pb-16 scroll-smooth">
-      {/* Título e introdução */}
-      <motion.section
-        {...fadeInUp}
-        className="pt-32 pb-20 max-w-4xl mx-auto text-center"
-      >
-        <h1 className="text-5xl md:text-5xl font-extrabold text-pink-400 mb-4">
-          Mottu
-        </h1>
-        <p className="text-lg md:text-xl text-neutral-700 dark:text-neutral-400 max-w-3xl mx-auto">
-          Mvp De Localização Inteligente De Motos Em Pátios Com Esp32 e celulares.
-        </p>
-      </motion.section>
+      <div className="pt-28 max-w-5xl mx-auto">
+        <div className="mb-6 flex items-center justify-between text-sm text-neutral-400">
+          <button onClick={() => navigate(-1)} className="hover:text-white transition">
+            ← Voltar
+          </button>
+          <Breadcrumbs />
+        </div>
+
+        {/* Título e introdução */}
+        <motion.section {...fadeInUp} className="pb-20 max-w-4xl mx-auto text-center">
+          <h1 className="text-5xl font-extrabold text-pink-400 mb-4">Mottu</h1>
+          <p className="text-lg md:text-xl text-neutral-700 dark:text-neutral-400 max-w-3xl mx-auto">
+            MVP de localização inteligente de motos em pátios com ESP32 e celulares.
+          </p>
+        </motion.section>
+      </div>
 
       {/* Seção: Sobre o Projeto */}
       <motion.section {...fadeInUp} className="mb-20 max-w-4xl mx-auto">
