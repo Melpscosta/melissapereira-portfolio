@@ -1,32 +1,68 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
-const fadeInUp = { initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.6 } };
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6 },
+};
 
 export default function ProjetoAguaViva() {
   const navigate = useNavigate();
 
+  const images = [
+    "Wireframe - 13.png",
+    "Wireframe - 12.png",
+    "Wireframe - 7.png",
+    "Wireframe - 14.png",
+    "Wireframe - 15.png",
+    "FAQs.png",
+  ];
+
   return (
     <main className="bg-white dark:bg-neutral-950 text-black dark:text-white font-sans min-h-screen px-6 pb-24 scroll-smooth">
-      <div className="pt-28 max-w-5xl mx-auto">
-        <div className="mb-6 flex items-center justify-between text-sm text-neutral-400">
-          <button onClick={() => navigate(-1)} className="hover:text-white transition">← Voltar</button>
-          <Breadcrumbs />
-        </div>
+      {/* Botão voltar (apenas seta) fixo no canto */}
+      <button
+        onClick={() => navigate(-1)}
+        aria-label="Voltar"
+        className="fixed left-4 top-6 z-20 grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-black/30 backdrop-blur hover:bg-black/50 transition"
+      >
+        <ArrowLeft className="h-5 w-5 text-white" />
+      </button>
 
-        {/* Título + intro */}
-        <motion.section {...fadeInUp} className="text-center mb-20">
-          <h1 className="text-5xl md:text-6xl font-extrabold text-pink-400 mb-4">ÁguaViva</h1>
-          <p className="text-lg md:text-xl text-neutral-700 dark:text-neutral-400 max-w-3xl mx-auto">
-            Plataforma de voluntariado e ecoturismo que conecta pessoas ao propósito da preservação marinha.
-          </p>
-        </motion.section>
+      {/* Header */}
+      <div className="pt-24 md:pt-32 max-w-6xl mx-auto">
+        {/* Título grandão alinhado à esquerda */}
+        <motion.h1
+          {...fadeInUp}
+          className="text-[clamp(2.75rem,6vw,5.5rem)] leading-[0.95] font-extrabold tracking-tight text-white mb-3"
+        >
+          ÁguaViva
+        </motion.h1>
+
+        {/* Breadcrumb embaixo do título, à esquerda */}
+        <motion.div
+          {...fadeInUp}
+          transition={{ ...fadeInUp.transition, delay: 0.05 }}
+          className="text-sm text-neutral-400"
+        >
+          <Breadcrumbs />
+        </motion.div>
+
+        {/* Intro */}
+        <motion.p
+          {...fadeInUp}
+          transition={{ ...fadeInUp.transition, delay: 0.1 }}
+          className="mt-6 text-lg md:text-xl text-neutral-300 max-w-3xl"
+        >
+          Plataforma de voluntariado e ecoturismo que conecta pessoas ao propósito da preservação marinha.
+        </motion.p>
       </div>
 
-
-      <div className="space-y-24 max-w-5xl mx-auto">
+      <div className="space-y-16 md:space-y-24 max-w-6xl mx-auto mt-16">
         {/* SOBRE */}
         <motion.section {...fadeInUp} className="space-y-6">
           <h2 className="text-2xl font-bold text-white">Sobre o projeto</h2>
@@ -46,9 +82,7 @@ export default function ProjetoAguaViva() {
 
         {/* FUNCIONALIDADES */}
         <motion.section {...fadeInUp} className="space-y-4">
-          <h2 className="text-2xl font-bold text-white">
-            Funcionalidades principais
-          </h2>
+          <h2 className="text-2xl font-bold text-white">Funcionalidades principais</h2>
           <ul className="list-disc list-inside space-y-2 text-neutral-300">
             <li>Cadastro de voluntários e anfitriões</li>
             <li>Sistema de pontuação por ações ambientais</li>
@@ -59,24 +93,24 @@ export default function ProjetoAguaViva() {
           </ul>
         </motion.section>
 
+        {/* GALERIA MASONRY (igual ao padrão Porto) */}
         <motion.section
           {...fadeInUp}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="columns-1 sm:columns-2 lg:columns-3 gap-4"
         >
-          {[
-            "Wireframe - 13.png",
-            "Wireframe - 12.png",
-            "Wireframe - 7.png",
-            "Wireframe - 14.png",
-            "Wireframe - 15.png",
-            "FAQs.png",
-          ].map((img, i) => (
-            <img
+          {images.map((img, i) => (
+            <figure
               key={i}
-              src={`/assets/${img}`}
-              className="w-full h-auto rounded-xl border border-white/10 shadow-xl object-contain"
-              alt={`ÁguaViva ${i + 1}`}
-            />
+              className="mb-4 break-inside-avoid"
+              style={{ breakInside: "avoid" }}
+            >
+              <img
+                src={`/assets/${img}`}
+                alt={`ÁguaViva ${i + 1}`}
+                loading="lazy"
+                className="w-full h-auto rounded-xl border border-white/10 shadow-xl object-cover"
+              />
+            </figure>
           ))}
         </motion.section>
 
@@ -94,9 +128,7 @@ export default function ProjetoAguaViva() {
 
         {/* RESULTADOS */}
         <motion.section {...fadeInUp} className="space-y-4">
-          <h2 className="text-2xl font-bold text-white">
-            Resultados esperados
-          </h2>
+          <h2 className="text-2xl font-bold text-white">Resultados esperados</h2>
           <p className="leading-relaxed text-neutral-300">
             Esperamos promover a educação ambiental, incentivar o ecoturismo
             sustentável e envolver milhares de pessoas em ações concretas de

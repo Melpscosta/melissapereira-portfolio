@@ -1,31 +1,62 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
-const fadeInUp = { initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.6 } };
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6 },
+};
 
 export default function ProjetoConexaoSolidaria() {
   const navigate = useNavigate();
 
+  // Se quiser galeria no estilo Porto, basta preencher os nomes dos arquivos em /assets
+  // const images = ["conexao1", "conexao2", "conexao3"];
+
   return (
     <main className="bg-white dark:bg-neutral-950 text-black dark:text-white font-sans min-h-screen px-6 pb-24 scroll-smooth">
-      <div className="pt-28 max-w-5xl mx-auto">
-        <div className="mb-6 flex items-center justify-between text-sm text-neutral-400">
-          <button onClick={() => navigate(-1)} className="hover:text-white transition">← Voltar</button>
-          <Breadcrumbs />
-        </div>
+      {/* Botão voltar (apenas seta) fixo no canto */}
+      <button
+        onClick={() => navigate(-1)}
+        aria-label="Voltar"
+        className="fixed left-4 top-6 z-20 grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-black/30 backdrop-blur hover:bg-black/50 transition"
+      >
+        <ArrowLeft className="h-5 w-5 text-white" />
+      </button>
 
-        {/* Título + intro */}
-        <motion.section {...fadeInUp} className="text-center mb-20">
-          <h1 className="text-5xl md:text-6xl font-extrabold text-pink-400 mb-4">Conexão Solidária</h1>
-          <p className="text-lg md:text-xl text-neutral-700 dark:text-neutral-400 max-w-3xl mx-auto">
-            Comunicação offline para emergências via rede Bluetooth Mesh.
-          </p>
-        </motion.section>
+      {/* Header */}
+      <div className="pt-24 md:pt-32 max-w-6xl mx-auto">
+        {/* Título grandão alinhado à esquerda */}
+        <motion.h1
+          {...fadeInUp}
+          className="text-[clamp(2.75rem,6vw,5.5rem)] leading-[0.95] font-extrabold tracking-tight text-white mb-3"
+        >
+          Conexão Solidária
+        </motion.h1>
+
+        {/* Breadcrumb embaixo do título, à esquerda */}
+        <motion.div
+          {...fadeInUp}
+          transition={{ ...fadeInUp.transition, delay: 0.05 }}
+          className="text-sm text-neutral-400"
+        >
+          <Breadcrumbs />
+        </motion.div>
+
+        {/* Intro */}
+        <motion.p
+          {...fadeInUp}
+          transition={{ ...fadeInUp.transition, delay: 0.1 }}
+          className="mt-6 text-lg md:text-xl text-neutral-300 max-w-3xl"
+        >
+          Comunicação offline para emergências via rede Bluetooth Mesh.
+        </motion.p>
       </div>
 
-      <div className="space-y-24 max-w-5xl mx-auto">
+      <div className="space-y-16 md:space-y-24 max-w-6xl mx-auto mt-16">
         {/* SOBRE */}
         <motion.section {...fadeInUp} className="space-y-6">
           <h2 className="text-2xl font-bold text-white">Sobre o projeto</h2>
@@ -57,6 +88,28 @@ export default function ProjetoConexaoSolidaria() {
             <li>Dashboard web para monitoramento de ocorrências</li>
           </ul>
         </motion.section>
+
+        {/* GALERIA (opcional, igual ao padrão Porto)
+        <motion.section
+          {...fadeInUp}
+          className="columns-1 sm:columns-2 lg:columns-3 gap-4"
+        >
+          {images.map((img, i) => (
+            <figure
+              key={i}
+              className="mb-4 break-inside-avoid"
+              style={{ breakInside: "avoid" }}
+            >
+              <img
+                src={`/assets/${img}.png`}
+                alt={`Screenshot ${i + 1}`}
+                loading="lazy"
+                className="w-full h-auto rounded-xl border border-white/10 shadow-xl object-cover"
+              />
+            </figure>
+          ))}
+        </motion.section>
+        */}
 
         {/* MOTIVAÇÃO */}
         <motion.section {...fadeInUp} className="space-y-4">

@@ -7,6 +7,7 @@ export type ProjetoInfo = {
   hero?: string;    
   galeria?: string[]; 
   imagem?: string;   
+  mottuCover?: string; // 👈 adicionado só para a Mottu
 };
 
 export const projetosDetalhados: Record<string, ProjetoInfo> = {
@@ -15,7 +16,7 @@ export const projetosDetalhados: Record<string, ProjetoInfo> = {
     descricao:
       "Sistema inteligente para mapeamento de pátios com QR Codes, BLE e IoT embarcado, otimizando localização de motos.",
     tecnologias: ["React", "Node.js", "BLE", "ESP32", "RSSI", "MQTT", "PostgreSQL"],
-    cover: "/assets/mottu.jpg", // se preferir, mantenha só imagem e remova cover
+    mottuCover: "/assets/mottuCover.jpg", // 👈 nova capa principal
     hero: "/assets/mottu-hero.jpg",
     galeria: ["/assets/mottu-1.jpg", "/assets/mottu-2.jpg", "/assets/mottu-3.jpg"],
   },
