@@ -1,78 +1,53 @@
-import { useState } from "react";
-import { ChevronUp, ChevronDown, MapPin } from "lucide-react"; // Corrigido aqui ✅
-import { motion } from "framer-motion";
+// src/components/Exp.tsx
+import React from "react";
 
-const experiencia = [
-  {
-    cargo: "Abbott",
-    periodo: "2024 – Present",
-    local: "São Paulo, BR",
-    descricao: "Experiência em ambiente corporativo global, com interface entre áreas de vacinas e marketing. Contribuí com criação e tradução de apresentações, planilhas de automação em Excel com código VBA, e aplicação de conhecimentos de design em materiais internos. Também participei no processo de criação do site de vendas de vacinas da empresa (Influconnect).",
-    tecnologias: ["UX/UI", "Microsoft 365", "Tradução de linguagem técnica para corporaivo", "Figma"],
-  },
-];
+export type ExpItem = {
+  titulo: string;
+  empresa?: string;
+  periodo?: string;
+  local?: string;
+  pontos?: string[];
+  tecnologias?: string[];
+};
 
-export default function ExperienciaAccordion() {
-  const [ativo, setAtivo] = useState(null);
+type ExpProps = {
+  itens?: ExpItem[];      // <-- opcional
+  className?: string;
+};
 
-  const toggle = (index) => {
-    setAtivo(ativo === index ? null : index);
-  };
-
+const Exp: React.FC<ExpProps> = ({ itens = [], className }) => { // <-- default []
   return (
-    
-    <motion.section id="exp" className="mt-32 px-4 max-w-4xl mx-auto text-white">
-      <h2 className="text-4xl font-bold mb-10 text-center">
-        Experiência Profissional
-      </h2>
+    <section className={className}>
+      <ul className="space-y-6">
+        {itens.map((exp: ExpItem, idx: number) => (
+          <li key={idx} className="rounded-2xl border border-white/10 p-5 bg-neutral-950/70">
+            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+              <h3 className="text-white font-semibold text-lg">{exp.titulo}</h3>
+              {exp.empresa && <span className="text-neutral-300">• {exp.empresa}</span>}
+              {exp.periodo && <span className="text-neutral-400 text-sm">{exp.periodo}</span>}
+              {exp.local && <span className="text-neutral-400 text-sm">• {exp.local}</span>}
+            </div>
 
-      {experiencia.map((exp, index) => (
-        <div key={index} className="mb-6">
-          {/* Cabeçalho do Accordion */}
-          <button
-            onClick={() => toggle(index)}
-            className="w-full bg-[#9b34ef] rounded-md px-6 py-3 flex justify-between items-center text-black font-semibold text-lg transition-all"
-          >
-            <span>{exp.cargo}</span>
-            <span>{exp.periodo}</span>
-            {ativo === index ? (
-              <ChevronUp size={20} />
-            ) : (
-              <ChevronDown size={20} />
+            {Array.isArray(exp.pontos) && exp.pontos.length > 0 && (
+              <ul className="mt-3 list-disc list-inside text-neutral-300 space-y-1">
+                {exp.pontos.map((p: string, i: number) => <li key={i}>{p}</li>)}
+              </ul>
             )}
-          </button>
 
-          {/* Corpo do Accordion */}
-          {ativo === index && (
-            <div className="bg-[#1e1b2e] rounded-md p-6 mt-2 flex flex-col gap-4 shadow-lg transition-all">
-              {/* Local */}
-              <div className="flex items-center text-sm gap-4 text-neutral-400">
-                <span className="flex items-center gap-1">
-                  <MapPin size={16} />
-                  {exp.local}
-                </span>
-              </div>
-
-              {/* Descrição */}
-              <p className="text-neutral-300 leading-relaxed text-sm">
-                {exp.descricao}
-              </p>
-
-              {/* Bullets com tecnologias */}
-              <div className="flex flex-wrap gap-2">
-                {exp.tecnologias.map((tec, i) => (
-                  <span
-                    key={i}
-                    className="bg-[#2c2740] text-white text-xs px-3 py-1 rounded-full"
-                  >
-                    {tec}
+            {Array.isArray(exp.tecnologias) && exp.tecnologias.length > 0 && (
+              <div className="mt-4 flex flex-wrap gap-2">
+                {exp.tecnologias.map((t: string, i: number) => (
+                  <span key={i} className="bg-white/10 text-neutral-200 text-xs px-3 py-1 rounded-full">
+                    {t}
                   </span>
                 ))}
               </div>
-            </div>
-          )}
-        </div>
-      ))}
-    </motion.section>
+            )}
+          </li>
+        ))}
+      </ul>
+    </section>
   );
-}
+};
+
+export default Exp;
