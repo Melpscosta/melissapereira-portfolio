@@ -5,17 +5,14 @@
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "jsx": "react-jsx",
-
     "baseUrl": ".",
     "paths": { "@/*": ["src/*"] },
-
     "strict": true,
     "noImplicitAny": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-
     "types": ["vite/client"]
   },
   "include": ["src"]
