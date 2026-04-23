@@ -1,7 +1,6 @@
-// src/Pages/MyWork.tsx
-import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 import { projetosDetalhados } from "../data/ProjetoDetalhado";
 
 const linkBySlug: Record<string, string> = {
@@ -12,14 +11,15 @@ const linkBySlug: Record<string, string> = {
   "marcacao-de-consultas-medicas": "/projetos/marcacao-de-consultas-medicas",
 };
 
-const fadeIn = { initial: { opacity: 0, y: 16 }, animate: { opacity: 1, y: 0 } };
+const fadeIn = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const } },
+};
 
-// Capa por regras (prioriza mottuCover; força sem imagem em dois slugs)
 function pickCover(slug: string, p: typeof projetosDetalhados[string]) {
   const forceNoImage =
     slug === "conexao-solidaria" || slug === "marcacao-de-consultas-medicas";
   if (forceNoImage) return null;
-
   if (slug === "mottu" && p.mottuCover) return p.mottuCover!;
   return p.cover || p.hero || p.imagem || p.galeria?.[0] || null;
 }
@@ -28,27 +28,30 @@ export default function MyWork() {
   const slugs = Object.keys(projetosDetalhados);
 
   return (
-    <section id="projetos" className="mt-28 max-w-7xl mx-auto px-4">
-      <motion.h2
-        {...fadeIn}
-        transition={{ duration: 0.5 }}
-        className="text-[clamp(2rem,4.5vw,3rem)] font-extrabold tracking-tight text-white text-center"
+    <section id="projetos" className="bg-black max-w-6xl mx-auto px-2 md:px-6">
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.6 }}
+        className="mb-12 max-w-3xl text-left"
       >
-        Projetos
-      </motion.h2>
+        <h2 className="font-ojuju text-4xl md:text-5xl font-bold uppercase tracking-wide text-crimson-500">
+          Projetos
+        </h2>
+        <p className="mt-4 text-sm text-white/50 md:text-base">
+          Projetos em atualização — em breve com nova curadoria e organização.
+        </p>
+      </motion.div>
 
-      <motion.p
-        {...fadeIn}
-        transition={{ duration: 0.5, delay: 0.05 }}
-        className="text-neutral-300 max-w-2xl mx-auto text-sm md:text-base text-center mt-3 mb-10"
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ staggerChildren: 0.08 }}
+        className="columns-1 sm:columns-2 lg:columns-3 gap-6 [column-fill:_balance]"
       >
-        Participei de iniciativas com impacto social, ambiental e tecnológico.
-        Cada solução foi pensada para acessibilidade, impacto real e ótima experiência de uso.
-      </motion.p>
-
-      {/* Masonry em columns */}
-      <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 [column-fill:_balance]">
-        {slugs.map((slug, i) => {
+        {slugs.map((slug) => {
           const proj = projetosDetalhados[slug];
           const to = linkBySlug[slug] || `/projetos/${slug}`;
           const cover = pickCover(slug, proj);
@@ -57,58 +60,62 @@ export default function MyWork() {
             <motion.article
               key={slug}
               variants={fadeIn}
-              initial="initial"
-              animate="animate"
-              transition={{ duration: 0.45, delay: i * 0.04 }}
               className="mb-6 break-inside-avoid"
             >
               <Link
                 to={to}
-                className="group block rounded-2xl overflow-hidden border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-pink-500/15 transition"
+                className="group block rounded-2xl overflow-hidden border border-white/10 bg-ink-700/60 hover:border-crimson-600/40 hover:shadow-accent transition-all duration-500 focus-ring"
               >
-                {/* Topo: imagem inteira se existir */}
-                {cover ? (
-                  <div className="bg-neutral-900">
+                {cover && (
+                  <div className="relative bg-ink-800 overflow-hidden">
                     <img
                       src={cover}
-                      alt="" // evita título duplicado caso a imagem quebre
+                      alt=""
                       loading="lazy"
-                      className="w-full h-auto object-contain block"
-                      // se der erro no src, some com a imagem para não mostrar o alt
+                      className="w-full h-auto object-contain block transition-transform duration-700 group-hover:scale-[1.03]"
                       onError={(e) => {
-                        const el = e.currentTarget as HTMLImageElement;
-                        el.style.display = "none";
+                        (e.currentTarget as HTMLImageElement).style.display = "none";
                       }}
                     />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-900/80 via-ink-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
-                ) : null}
+                )}
 
-                {/* Rodapé com infos (sempre visível) */}
-                <div className="p-5 bg-neutral-950">
-                  <h3 className="text-lg font-bold text-white mb-1">
-                    {proj.titulo}
-                  </h3>
+                <div className="p-5 md:p-6">
+                  <div className="flex items-start justify-between gap-3">
+                    <h3 className="text-[17px] font-semibold text-white leading-snug">
+                      {proj.titulo}
+                    </h3>
+                    <span className="grid place-items-center h-8 w-8 rounded-full border border-white/10 text-white/60 group-hover:text-white group-hover:bg-crimson-600 group-hover:border-crimson-600 group-hover:-rotate-45 transition-all duration-500 shrink-0">
+                      <ArrowUpRight size={15} />
+                    </span>
+                  </div>
 
-                  <p className="text-sm text-neutral-400 mb-3">
+                  <p className="mt-2 text-sm text-white/55 leading-relaxed">
                     {proj.descricao}
                   </p>
 
-                  <div className="flex flex-wrap gap-2">
+                  <div className="mt-4 flex flex-wrap gap-1.5">
                     {proj.tecnologias.slice(0, 4).map((tech, idx) => (
                       <span
                         key={idx}
-                        className="bg-white/10 text-neutral-200 text-xs px-3 py-1 rounded-full hover:bg-pink-500 hover:text-white transition"
+                        className="text-[11px] font-mono tracking-wide text-white/70 px-2.5 py-1 rounded-full border border-white/10 bg-white/[0.03] group-hover:border-crimson-600/40 transition"
                       >
                         {tech}
                       </span>
                     ))}
+                    {proj.tecnologias.length > 4 && (
+                      <span className="text-[11px] font-mono text-white/40 px-2.5 py-1">
+                        +{proj.tecnologias.length - 4}
+                      </span>
+                    )}
                   </div>
                 </div>
               </Link>
             </motion.article>
           );
         })}
-      </div>
+      </motion.div>
     </section>
   );
 }
