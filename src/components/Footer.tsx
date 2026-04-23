@@ -1,83 +1,91 @@
-import { Github, Linkedin } from "lucide-react";
+import { Github, Linkedin, Mail, ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 },
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const } },
 };
 
-
-const stackAtual = [
-  { nome: "React", cor: "bg-sky-500" },
-  { nome: "TypeScript", cor: "bg-blue-600" },
-  { nome: "Tailwind", cor: "bg-cyan-500" },
-  { nome: "Vite", cor: "bg-purple-500" },
-  { nome: "Framer Motion", cor: "bg-pink-500" },
-  { nome: "Lucide", cor: "bg-neutral-800" },
-];
+const stackAtual = ["React", "TypeScript", "Tailwind", "Vite", "Framer Motion", "Lucide"];
 
 export default function Footer() {
   return (
     <motion.footer
-      {...fadeInUp}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ staggerChildren: 0.1 }}
       id="final"
-      className="mt-32 mb-10 px-4 text-center text-sm text-neutral-600 dark:text-neutral-500"
+      className="relative pb-16 px-4"
     >
-      <p>
-          <h2 className="text-3xl font-semibold mb-6 text-center">Aberta a colaborações freelance com propósito.</h2>
-      </p>
-      <p>
-        Se você tem um projeto especial e acha que podemos construir algo incrível juntos, vou adorar ouvir sua ideia. Me mande um e-mail — vamos conversar!
-      </p>
-      <p className="mt-1">
-        Contato:{" "}
-        <span className="text-black dark:text-white">
+      <div className="relative max-w-4xl mx-auto rounded-3xl border border-white/10 bg-ink-700/70 overflow-hidden p-8 md:p-14 text-center">
+        {/* glow de fundo */}
+        <div className="pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 h-64 w-[80%] rounded-full bg-crimson-600/15 blur-3xl" />
+        <div className="pointer-events-none absolute inset-0 bg-grid opacity-20 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
+
+        <motion.h2
+          variants={fadeUp}
+          className="font-ojuju text-4xl md:text-5xl font-bold uppercase tracking-wide text-crimson-500 leading-tight relative"
+        >
+          Contato
+        </motion.h2>
+
+        <motion.p
+          variants={fadeUp}
+          className="text-white/60 mt-5 max-w-xl mx-auto text-sm md:text-base leading-relaxed relative"
+        >
+          Tem um projeto especial em mente? Vou adorar ouvir sua ideia.
+          Me mande um e-mail — podemos construir algo incrível juntas.
+        </motion.p>
+
+        <motion.div variants={fadeUp} className="relative mt-8 flex flex-wrap gap-3 justify-center">
           <a
             href="mailto:melissapcosta@gmail.com"
-            className="underline hover:text-blue-600 dark:hover:text-blue-400 transition"
+            className="group inline-flex items-center gap-2 px-5 py-3 rounded-full bg-crimson-600 hover:bg-crimson-500 text-white text-sm font-medium transition-all duration-300 shadow-accent hover:shadow-accent-lg focus-ring"
           >
+            <Mail size={16} />
             melissapcosta@gmail.com
+            <ArrowUpRight size={15} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
-        </span>
-      </p>
+        </motion.div>
 
-      <div className="mt-4 flex justify-center gap-4">
-        <a
-          href="https://github.com/Melpscosta"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 rounded-xl bg-neutral-200 dark:bg-neutral-800 px-5 py-2 text-black dark:text-white transition hover:bg-neutral-300 dark:hover:bg-neutral-700"
-        >
-          <Github size={18} />
-          GitHub
-        </a>
-        <a
-          href="https://www.linkedin.com/in/melissa-pereira-da-costa-b3a2a519a/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-2 text-white transition hover:bg-blue-500"
-        >
-          <Linkedin size={18} />
-          LinkedIn
-        </a>
+        <motion.div variants={fadeUp} className="relative mt-6 flex justify-center gap-3">
+          <a
+            href="https://github.com/Melpscosta"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/[0.02] text-white/70 hover:text-white hover:border-white/30 text-sm transition focus-ring"
+          >
+            <Github size={15} /> GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/in/melissa-pereira-da-costa-b3a2a519a/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/[0.02] text-white/70 hover:text-white hover:border-white/30 text-sm transition focus-ring"
+          >
+            <Linkedin size={15} /> LinkedIn
+          </a>
+        </motion.div>
       </div>
 
-      {/* Stack atual */}
-      <div className="mt-16">
-        <h3 className="text-sm font-semibold mb-3 text-neutral-700 dark:text-neutral-300">Stacks usadas neste portifólio</h3>
-        <div className="flex flex-wrap gap-2 justify-center">
-          {stackAtual.map((item, index) => (
-            <span
-              key={index}
-              className={`text-xs px-3 py-1 rounded-full text-white ${item.cor}`}
-            >
-              {item.nome}
+      {/* Rodapé inferior */}
+      <div className="max-w-4xl mx-auto mt-10 flex flex-col md:flex-row items-center justify-between gap-4 text-[12px] text-white/40">
+        <div className="flex items-center gap-2">
+          <span className="h-1.5 w-1.5 rounded-full bg-crimson-600" />
+          <span className="font-mono">© {new Date().getFullYear()} Melissa Pereira da Costa</span>
+        </div>
+
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 justify-center">
+          <span className="font-mono text-white/30 tracking-wider">Construído com</span>
+          {stackAtual.map((s, i) => (
+            <span key={s} className="flex items-center gap-1">
+              <span className="text-white/70 font-mono">{s}</span>
+              {i < stackAtual.length - 1 && <span className="text-white/20">·</span>}
             </span>
           ))}
         </div>
       </div>
-
     </motion.footer>
   );
 }

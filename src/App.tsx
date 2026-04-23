@@ -2,28 +2,24 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import Header from "./components/Header";
 import MyWork from "./components/myWork";
-import ScrollToTop from "./components/ScrollToTop"; // <- adicione isto
+import ScrollToTop from "./components/ScrollToTop";
 
-// Projetos específicos
 import ProjetoPorto from "./Pages/ProjetoPorto";
 import ProjetoMottu from "./Pages/ProjetoMottu";
 import ProjetoConexaoSolidaria from "./Pages/ProjetoConexaoSolidaria";
 import ProjetoAguaViva from "./Pages/ProjetoAguaViva";
 import ProjetoMarcacaoConsultas from "./Pages/ProjetoMarcacaoConsultas";
-
-// Página genérica
 import ProjetoDetalhado from "./Pages/ProjetoDetalhado";
 
-function App() {
+export default function App() {
   return (
     <BrowserRouter>
-      <ScrollToTop />   {/* <- garante topo ao trocar de rota */}
+      <ScrollToTop />
       <Header />
 
-      <div className="pt-16">
+      <div className="bg-ink-900 text-white min-h-screen">
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* segue com suas rotas de projetos */}
           <Route path="/projetos" element={<MyWork />} />
           <Route path="/projetos/porto" element={<ProjetoPorto />} />
           <Route path="/projetos/mottu" element={<ProjetoMottu />} />
@@ -36,5 +32,3 @@ function App() {
     </BrowserRouter>
   );
 }
-
-export default App;
