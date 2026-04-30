@@ -208,7 +208,7 @@ export default function MelissaPortfolio() {
           >
             <div className="min-w-0 flex-1 lg:max-w-xl xl:max-w-[28rem]">
               <header>
-                <h2 className="font-ojuju text-4xl font-bold uppercase tracking-wide text-crimson-500 sm:text-5xl">
+                <h2 className="font-parkinsans text-4xl font-extrabold uppercase tracking-wide text-crimson-500 sm:text-5xl">
                   Sobre
                 </h2>
               </header>
@@ -260,7 +260,7 @@ export default function MelissaPortfolio() {
       >
         <div className="relative z-10 mx-auto max-w-6xl">
           <div className="mb-12 max-w-3xl text-left md:mb-14">
-            <h2 className="font-ojuju text-4xl font-bold uppercase tracking-wide text-crimson-500 md:text-5xl">
+            <h2 className="font-parkinsans text-4xl font-extrabold uppercase tracking-wide text-crimson-500 md:text-5xl">
               Certificados
             </h2>
             <p className="mt-4 text-sm text-white/50 md:text-base">
@@ -329,7 +329,10 @@ export default function MelissaPortfolio() {
       </section>
 
       {/* ─────────── CONTATO ─────────── */}
-      <section id="contact" className="mt-12 scroll-mt-24 md:mt-16">
+      <section
+        id="contact"
+        className="relative scroll-mt-24 bg-black pt-14 sm:pt-16 md:pt-20"
+      >
         <Footer />
       </section>
     </main>

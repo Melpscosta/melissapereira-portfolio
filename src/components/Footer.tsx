@@ -25,7 +25,7 @@ export default function Footer() {
 
         <motion.h2
           variants={fadeUp}
-          className="font-ojuju text-4xl md:text-5xl font-bold uppercase tracking-wide text-crimson-500 leading-tight relative"
+          className="font-parkinsans text-4xl md:text-5xl font-extrabold uppercase tracking-wide text-crimson-500 leading-tight relative"
         >
           Contato
         </motion.h2>
