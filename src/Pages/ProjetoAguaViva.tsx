@@ -12,6 +12,9 @@ const fadeInUp = {
 
 export default function ProjetoAguaViva() {
   const navigate = useNavigate();
+  const handleBack = () => {
+    navigate({ pathname: "/", hash: "#work" });
+  };
 
   const images = [
     "Wireframe - 13.png",
@@ -23,22 +26,23 @@ export default function ProjetoAguaViva() {
   ];
 
   return (
-    <main className="bg-white dark:bg-neutral-950 text-black dark:text-white font-sans min-h-screen px-6 pb-24 scroll-smooth">
-      {/* Botão voltar (apenas seta) fixo no canto */}
-      <button
-        onClick={() => navigate(-1)}
-        aria-label="Voltar"
-        className="fixed left-4 top-6 z-20 grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-black/30 backdrop-blur hover:bg-black/50 transition"
-      >
-        <ArrowLeft className="h-5 w-5 text-white" />
-      </button>
-
+    <main className="bg-white dark:bg-neutral-950 text-black dark:text-white font-parkinsans min-h-screen px-6 pb-24 scroll-smooth">
       {/* Header */}
       <div className="pt-24 md:pt-32 max-w-6xl mx-auto">
+        <motion.button
+          {...fadeInUp}
+          onClick={handleBack}
+          aria-label="Voltar para projetos"
+          className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-white/90 backdrop-blur transition hover:border-crimson-500/60 hover:bg-crimson-600/15 hover:text-white"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          Voltar para projetos
+        </motion.button>
+
         {/* Título grandão alinhado à esquerda */}
         <motion.h1
           {...fadeInUp}
-          className="text-[clamp(2.75rem,6vw,5.5rem)] leading-[0.95] font-extrabold tracking-tight text-white mb-3"
+          className="font-parkinsans mt-6 text-[clamp(2.75rem,6vw,5.5rem)] leading-[0.95] font-extrabold uppercase tracking-wide text-crimson-500 mb-3"
         >
           ÁguaViva
         </motion.h1>
@@ -65,7 +69,7 @@ export default function ProjetoAguaViva() {
       <div className="space-y-16 md:space-y-24 max-w-6xl mx-auto mt-16">
         {/* SOBRE */}
         <motion.section {...fadeInUp} className="space-y-6">
-          <h2 className="text-2xl font-bold text-white">Sobre o projeto</h2>
+          <h2 className="font-parkinsans text-2xl font-bold uppercase tracking-wide text-white">Sobre o projeto</h2>
           <p className="leading-relaxed text-neutral-300">
             ÁguaViva é mais que uma plataforma: é um movimento em prol dos
             oceanos. Através de ações voluntárias, os usuários acumulam pontos
@@ -82,7 +86,7 @@ export default function ProjetoAguaViva() {
 
         {/* FUNCIONALIDADES */}
         <motion.section {...fadeInUp} className="space-y-4">
-          <h2 className="text-2xl font-bold text-white">Funcionalidades principais</h2>
+          <h2 className="font-parkinsans text-2xl font-bold uppercase tracking-wide text-white">Funcionalidades principais</h2>
           <ul className="list-disc list-inside space-y-2 text-neutral-300">
             <li>Cadastro de voluntários e anfitriões</li>
             <li>Sistema de pontuação por ações ambientais</li>
@@ -94,10 +98,9 @@ export default function ProjetoAguaViva() {
         </motion.section>
 
         {/* GALERIA MASONRY (igual ao padrão Porto) */}
-        <motion.section
-          {...fadeInUp}
-          className="columns-1 sm:columns-2 lg:columns-3 gap-4"
-        >
+        <motion.section {...fadeInUp} className="space-y-6">
+          <h2 className="font-parkinsans text-2xl font-bold uppercase tracking-wide text-white">Galeria do app</h2>
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-4">
           {images.map((img, i) => (
             <figure
               key={i}
@@ -112,11 +115,12 @@ export default function ProjetoAguaViva() {
               />
             </figure>
           ))}
+          </div>
         </motion.section>
 
         {/* MOTIVAÇÃO */}
         <motion.section {...fadeInUp} className="space-y-4">
-          <h2 className="text-2xl font-bold text-white">O que nos motivou?</h2>
+          <h2 className="font-parkinsans text-2xl font-bold uppercase tracking-wide text-white">O que nos motivou?</h2>
           <p className="leading-relaxed text-neutral-300">
             Em um cenário de degradação marinha acelerada, sentimos a urgência
             de criar uma solução que engaje pessoas de forma positiva,
@@ -128,7 +132,7 @@ export default function ProjetoAguaViva() {
 
         {/* RESULTADOS */}
         <motion.section {...fadeInUp} className="space-y-4">
-          <h2 className="text-2xl font-bold text-white">Resultados esperados</h2>
+          <h2 className="font-parkinsans text-2xl font-bold uppercase tracking-wide text-white">Resultados esperados</h2>
           <p className="leading-relaxed text-neutral-300">
             Esperamos promover a educação ambiental, incentivar o ecoturismo
             sustentável e envolver milhares de pessoas em ações concretas de

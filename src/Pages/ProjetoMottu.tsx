@@ -12,27 +12,31 @@ const fadeInUp = {
 
 export default function ProjetoMottu() {
   const navigate = useNavigate();
+  const handleBack = () => {
+    navigate({ pathname: "/", hash: "#work" });
+  };
 
   // nomes dos arquivos que você me passou em /assets
   const images = ["mottu1", "mottu2", "Mottu3", "Mottu4", "Mottu5"];
 
   return (
-    <main className="bg-white dark:bg-neutral-950 text-black dark:text-white font-sans min-h-screen px-6 pb-24 scroll-smooth">
-      {/* Botão voltar (apenas seta) fixo no canto */}
-      <button
-        onClick={() => navigate(-1)}
-        aria-label="Voltar"
-        className="fixed left-4 top-6 z-20 grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-black/30 backdrop-blur hover:bg-black/50 transition"
-      >
-        <ArrowLeft className="h-5 w-5 text-white" />
-      </button>
-
+    <main className="bg-white dark:bg-neutral-950 text-black dark:text-white font-parkinsans min-h-screen px-6 pb-24 scroll-smooth">
       {/* Header */}
       <div className="pt-24 md:pt-32 max-w-6xl mx-auto">
+        <motion.button
+          {...fadeInUp}
+          onClick={handleBack}
+          aria-label="Voltar para projetos"
+          className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-white/90 backdrop-blur transition hover:border-crimson-500/60 hover:bg-crimson-600/15 hover:text-white"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          Voltar para projetos
+        </motion.button>
+
         {/* Título grandão alinhado à esquerda */}
         <motion.h1
           {...fadeInUp}
-          className="text-[clamp(2.75rem,6vw,5.5rem)] leading-[0.95] font-extrabold tracking-tight text-white mb-3"
+          className="font-parkinsans mt-6 text-[clamp(2.75rem,6vw,5.5rem)] leading-[0.95] font-extrabold uppercase tracking-wide text-crimson-500 mb-3"
         >
           Mottu
         </motion.h1>
@@ -60,7 +64,7 @@ export default function ProjetoMottu() {
       <div className="space-y-16 md:space-y-24 max-w-6xl mx-auto mt-16">
         {/* SOBRE */}
         <motion.section {...fadeInUp} className="space-y-6">
-          <h2 className="text-2xl font-bold text-white">Sobre o projeto</h2>
+          <h2 className="font-parkinsans text-2xl font-bold uppercase tracking-wide text-white">Sobre o projeto</h2>
           <p className="leading-relaxed text-neutral-300">
             Estamos desenvolvendo um MVP de localização inteligente de motos em
             pátios utilizando um módulo ESP32 fixo e celulares com Bluetooth
@@ -77,7 +81,7 @@ export default function ProjetoMottu() {
 
         {/* PROBLEMAS */}
         <motion.section {...fadeInUp} className="space-y-4">
-          <h2 className="text-2xl font-bold text-white">
+          <h2 className="font-parkinsans text-2xl font-bold uppercase tracking-wide text-white">
             Problemas que serão resolvidos
           </h2>
           <p className="leading-relaxed text-neutral-300">
@@ -90,7 +94,7 @@ export default function ProjetoMottu() {
 
         {/* BENEFÍCIOS */}
         <motion.section {...fadeInUp} className="space-y-4">
-          <h2 className="text-2xl font-bold text-white">
+          <h2 className="font-parkinsans text-2xl font-bold uppercase tracking-wide text-white">
             Benefícios da solução
           </h2>
           <ul className="list-disc list-inside space-y-2 text-neutral-300">
@@ -106,10 +110,9 @@ export default function ProjetoMottu() {
         </motion.section>
 
         {/* GALERIA MASONRY */}
-        <motion.section
-          {...fadeInUp}
-          className="columns-1 sm:columns-2 lg:columns-3 gap-4"
-        >
+        <motion.section {...fadeInUp} className="space-y-6">
+          <h2 className="font-parkinsans text-2xl font-bold uppercase tracking-wide text-white">Galeria do app</h2>
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-4">
           {images.map((img, i) => (
             <figure
               key={i}
@@ -124,11 +127,12 @@ export default function ProjetoMottu() {
               />
             </figure>
           ))}
+          </div>
         </motion.section>
 
         {/* RESULTADOS */}
         <motion.section {...fadeInUp} className="space-y-4">
-          <h2 className="text-2xl font-bold text-white">Resultados esperados</h2>
+          <h2 className="font-parkinsans text-2xl font-bold uppercase tracking-wide text-white">Resultados esperados</h2>
           <p className="leading-relaxed text-neutral-300">
             Espera-se uma melhoria significativa na gestão de pátios com redução
             do tempo para encontrar motos, menor erro humano, menor perda de
