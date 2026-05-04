@@ -6,7 +6,6 @@ import { projetosDetalhados } from "../data/ProjetoDetalhado";
 const linkBySlug: Record<string, string> = {
   "porto-seguro": "/projetos/porto",
   mottu: "/projetos/mottu",
-  "conexao-solidaria": "/projetos/conexao-solidaria",
   "agua-viva": "/projetos/agua-viva",
   "marcacao-de-consultas-medicas": "/projetos/marcacao-de-consultas-medicas",
 };
@@ -17,9 +16,6 @@ const fadeIn = {
 };
 
 function pickCover(slug: string, p: typeof projetosDetalhados[string]) {
-  const forceNoImage =
-    slug === "conexao-solidaria" || slug === "marcacao-de-consultas-medicas";
-  if (forceNoImage) return null;
   if (slug === "mottu" && p.mottuCover) return p.mottuCover!;
   return p.cover || p.hero || p.imagem || p.galeria?.[0] || null;
 }

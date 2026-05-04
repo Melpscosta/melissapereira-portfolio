@@ -10,6 +10,18 @@ const fadeInUp = {
   transition: { duration: 0.6 },
 };
 
+const healthcareScreenshots = [
+  "/JornadaHealthCare/WhatsApp Image 2026-04-29 at 23.49.08 (2).jpeg",
+  "/JornadaHealthCare/WhatsApp Image 2026-04-29 at 23.49.08 (3).jpeg",
+  "/JornadaHealthCare/WhatsApp Image 2026-04-29 at 23.49.08 (4).jpeg",
+  "/JornadaHealthCare/WhatsApp Image 2026-04-29 at 23.49.08 (5).jpeg",
+  "/JornadaHealthCare/WhatsApp Image 2026-04-29 at 23.49.08 (7).jpeg",
+  "/JornadaHealthCare/WhatsApp Image 2026-04-29 at 23.49.08 (9).jpeg",
+  "/JornadaHealthCare/WhatsApp Image 2026-04-29 at 23.49.08 (10).jpeg",
+  "/JornadaHealthCare/WhatsApp Image 2026-04-29 at 23.49.08 (11).jpeg",
+  "/JornadaHealthCare/WhatsApp Image 2026-04-29 at 23.49.08 (13).jpeg",
+];
+
 export default function ProjetoMarcacaoConsultas() {
   const navigate = useNavigate();
   const handleBack = () => {
@@ -35,7 +47,7 @@ export default function ProjetoMarcacaoConsultas() {
           {...fadeInUp}
           className="font-parkinsans mt-6 text-[clamp(2.75rem,6vw,5.5rem)] leading-[0.95] font-extrabold uppercase tracking-wide text-crimson-500 mb-3"
         >
-          Marcação de Consultas
+          HealthCare
         </motion.h1>
 
         {/* Breadcrumb embaixo do título */}
@@ -53,9 +65,9 @@ export default function ProjetoMarcacaoConsultas() {
           transition={{ ...fadeInUp.transition, delay: 0.1 }}
           className="mt-6 text-lg md:text-xl text-neutral-300 max-w-3xl"
         >
-          Sistema completo de agendamento médico online, focado em
-          acessibilidade, simplicidade e eficiência para pacientes e
-          profissionais da saúde.
+          App de marcação de consultas médicas e troca de mensagens, criado para
+          facilitar o dia a dia de médicos e pacientes com uma experiência clara
+          e prática.
         </motion.p>
 
         <motion.a
@@ -75,15 +87,14 @@ export default function ProjetoMarcacaoConsultas() {
         <motion.section {...fadeInUp} className="space-y-6">
           <h2 className="font-parkinsans text-2xl font-bold uppercase tracking-wide text-white">Sobre o projeto</h2>
           <p className="leading-relaxed text-neutral-300">
-            Desenvolvido em equipe, esse projeto simula um sistema real de
-            agendamento de consultas médicas com funcionalidades para cadastro
-            de pacientes, médicos e especialidades, além do controle das
-            consultas agendadas e realizadas.
+            O HealthCare foi pensado como um app moderno para organizar a
+            jornada de atendimento: desde o agendamento até o acompanhamento das
+            conversas entre médico e paciente.
           </p>
           <p className="leading-relaxed text-neutral-300">
-            Foi implementado em C# com Windows Forms e banco de dados
-            relacional, com foco no desenvolvimento de habilidades de CRUD,
-            conexão com banco e interface gráfica amigável.
+            A proposta une produtividade e cuidado, reduzindo fricções no
+            contato entre as partes e centralizando informações importantes em
+            uma interface simples de usar.
           </p>
         </motion.section>
 
@@ -91,12 +102,12 @@ export default function ProjetoMarcacaoConsultas() {
         <motion.section {...fadeInUp} className="space-y-4">
           <h2 className="font-parkinsans text-2xl font-bold uppercase tracking-wide text-white">Funcionalidades principais</h2>
           <ul className="list-disc list-inside space-y-2 text-neutral-300">
-            <li>Cadastro de pacientes, médicos e especialidades</li>
-            <li>Agendamento e cancelamento de consultas</li>
-            <li>Visualização da agenda médica</li>
-            <li>Edição e remoção de registros</li>
-            <li>Conexão com banco de dados relacional</li>
-            <li>Interface desktop responsiva com Windows Forms</li>
+            <li>Agendamento e reagendamento de consultas em poucos passos</li>
+            <li>Histórico de consultas para melhor acompanhamento</li>
+            <li>Troca de mensagens entre médicos e pacientes</li>
+            <li>Visão da agenda por data, horário e especialidade</li>
+            <li>Fluxo intuitivo para reduzir tempo de operação</li>
+            <li>Interface pensada para uso rápido no dia a dia</li>
           </ul>
         </motion.section>
 
@@ -104,10 +115,10 @@ export default function ProjetoMarcacaoConsultas() {
         <motion.section {...fadeInUp} className="space-y-4">
           <h2 className="font-parkinsans text-2xl font-bold uppercase tracking-wide text-white">O que nos motivou?</h2>
           <p className="leading-relaxed text-neutral-300">
-            Percebemos a importância de sistemas que melhorem a organização e o
-            atendimento na área da saúde, especialmente em unidades públicas ou
-            clínicas que ainda operam com agendamentos manuais. A ideia foi
-            criar um sistema prático e funcional para simular essa realidade.
+            A rotina de clínicas e consultórios exige comunicação constante e
+            organização precisa. O HealthCare nasceu para tornar esse processo
+            mais fluido, com foco em agilidade no atendimento e proximidade
+            entre profissionais de saúde e pacientes.
           </p>
         </motion.section>
 
@@ -115,11 +126,29 @@ export default function ProjetoMarcacaoConsultas() {
         <motion.section {...fadeInUp} className="space-y-4">
           <h2 className="font-parkinsans text-2xl font-bold uppercase tracking-wide text-white">Resultados esperados</h2>
           <p className="leading-relaxed text-neutral-300">
-            O sistema pode ser utilizado como base para projetos reais de
-            informatização da saúde. Além de fortalecer habilidades técnicas, o
-            projeto nos preparou para desenvolver soluções completas que
-            envolvem banco de dados, UI/UX e lógica de negócio.
+            O app oferece uma base sólida para evoluções futuras em saúde
+            digital, como lembretes inteligentes, prontuário integrado e novos
+            recursos de comunicação, sempre com foco na experiência humana.
           </p>
+        </motion.section>
+
+        <motion.section {...fadeInUp} className="space-y-6">
+          <h2 className="font-parkinsans text-2xl font-bold uppercase tracking-wide text-white">Galeria do app</h2>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {healthcareScreenshots.map((image, index) => (
+              <figure
+                key={image}
+                className="overflow-hidden rounded-xl border border-white/10 bg-neutral-900/40"
+              >
+                <img
+                  src={image}
+                  alt={`Tela ${index + 1} do app HealthCare`}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-500 hover:scale-[1.02]"
+                />
+              </figure>
+            ))}
+          </div>
         </motion.section>
       </div>
     </main>

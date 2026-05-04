@@ -6,9 +6,8 @@ const LABEL_OVERRIDES: Record<string, string> = {
   // projetos específicos (adicione os seus aqui)
   porto: "Porto Seguro",
   mottu: "Mottu",
-  "conexao-solidaria": "Conexão Solidária",
   "agua-viva": "Água Viva",
-  "marcacao-consultas": "Marcação de Consultas",
+  "marcacao-de-consultas-medicas": "HealthCare",
 };
 
 function slugToTitle(slug: string) {

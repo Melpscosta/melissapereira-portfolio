@@ -20,15 +20,6 @@ export const projetosDetalhados: Record<string, ProjetoInfo> = {
     hero: "/assets/mottu-hero.jpg",
     galeria: ["/assets/mottu-1.jpg", "/assets/mottu-2.jpg", "/assets/mottu-3.jpg"],
   },
-  "conexao-solidaria": {
-    titulo: "Conexão Solidária",
-    descricao:
-      "App offline via Bluetooth Mesh para comunicação em áreas sem internet durante emergências e desastres naturais.",
-    tecnologias: ["React Native", "SQLite", "Spring Boot", "BLE"],
-    cover: "/assets/conexao.png",
-    hero: "/assets/conexao-hero.jpg",
-    galeria: ["/assets/conexao-1.jpg"],
-  },
   "agua-viva": {
     titulo: "Água Viva",
     descricao:
@@ -39,13 +30,17 @@ export const projetosDetalhados: Record<string, ProjetoInfo> = {
     galeria: ["/assets/aguaviva-1.jpg", "/assets/aguaviva-2.jpg", "/assets/aguaviva-3.jpg"],
   },
   "marcacao-de-consultas-medicas": {
-    titulo: "Marcação de Consultas Médicas",
+    titulo: "HealthCare",
     descricao:
-      "Sistema para agendamento online de consultas populares, com foco em usabilidade e acessibilidade ampla.",
+      "App de marcação de consultas médicas e troca de mensagens para facilitar o dia a dia de médicos e pacientes.",
     tecnologias: ["PL/SQL", "Typescript", "React", "React Native", "UX/UI"],
-    cover: "/assets/marcacao.png",
-    hero: "/assets/marcacao-hero.jpg",
-    galeria: ["/assets/marcacao-1.jpg", "/assets/marcacao-2.jpg"],
+    cover: "/JornadaHealthCare/WhatsApp Image 2026-04-29 at 23.49.08 (2).jpeg",
+    hero: "/JornadaHealthCare/WhatsApp Image 2026-04-29 at 23.49.08 (2).jpeg",
+    galeria: [
+      "/JornadaHealthCare/WhatsApp Image 2026-04-29 at 23.49.08 (2).jpeg",
+      "/JornadaHealthCare/WhatsApp Image 2026-04-29 at 23.49.08 (3).jpeg",
+      "/JornadaHealthCare/WhatsApp Image 2026-04-29 at 23.49.08 (4).jpeg",
+    ],
   },
   "porto-seguro": {
     titulo: "Porto Seguro",
