@@ -16,7 +16,8 @@ type Certificado = {
   nome: string;
   pdf: string;
   descricao: string;
-  horas: string;
+  /** Omitir quando o certificado não informar carga horária */
+  horas?: string;
   instituicao: string;
 };
 
@@ -26,7 +27,6 @@ const certificados: Certificado[] = [
     pdf: "/certificados/AppsGoldQualified.pdf",
     descricao:
       "Qualificação focada em desenvolvimento de aplicações móveis, arquitetura e boas práticas para produtos digitais robustos.",
-    horas: "80 h",
     instituicao: "FIAP",
   },
   {
@@ -135,7 +135,9 @@ function CertMarqueeCard({ c }: { c: Certificado }) {
                   <p className="mt-2 line-clamp-4 text-xs leading-relaxed text-white/90 sm:text-[13px] sm:leading-relaxed">
                     {c.descricao}
                   </p>
-                  <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.2em] text-white/55">{c.horas}</p>
+                  {c.horas?.trim() ? (
+                    <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.2em] text-white/55">{c.horas}</p>
+                  ) : null}
                   <p className="mt-4 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-white/65">
                     Abrir PDF
                     <ArrowUpRight className="h-3.5 w-3.5 text-crimson-400" aria-hidden />
