@@ -149,8 +149,59 @@ body {
   animation: drawLine 1.2s ease-out forwards;
 }
 
+/* ─── Certificados (Home): faixa horizontal — keyframes usados também em Tailwind arbitrary ─── */
+@keyframes certMarquee {
+  /* Três cópias idênticas no DOM; desloca exatamente uma “volta” da lista */
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.33333333333333%);
+  }
+}
+
+@keyframes certSweep {
+  0% {
+    transform: translateX(-20%) skewX(-18deg);
+  }
+  100% {
+    transform: translateX(380%) skewX(-18deg);
+  }
+}
+
+.cert-marquee-track {
+  animation: certMarquee 46s linear infinite;
+  will-change: transform;
+}
+
+/* Segunda faixa: sentido contrário + ritmo ligeiramente diferente (mais orgânico) */
+.cert-marquee-track--rev {
+  animation-duration: 58s;
+  animation-direction: reverse;
+}
+
+/* Não usar :focus-within na faixa — o <object> PDF pode roubar foco e travar tudo. */
+.cert-marquee-track:hover,
+.cert-marquee-track:has(a:focus-visible),
+.cert-marquee-track--rev:hover,
+.cert-marquee-track--rev:has(a:focus-visible) {
+  animation-play-state: paused;
+}
+
 /* Reduz animações para quem pedir */
 @media (prefers-reduced-motion: reduce) {
-  * { animation: none !important; transition: none !important; }
-  html { scroll-behavior: auto; }
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+  /* Exceção: faixas com deriva bem lenta (especificidade > * + !important) */
+  .cert-marquee-track {
+    animation: certMarquee 140s linear infinite !important;
+  }
+  .cert-marquee-track--rev {
+    animation: certMarquee 160s linear infinite reverse !important;
+  }
 }
