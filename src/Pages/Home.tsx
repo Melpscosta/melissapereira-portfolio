@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import MyWork from "../components/myWork";
 import { motion } from "framer-motion";
 import { ArrowUpRight, FileText } from "lucide-react";
-import Footer from "@/components/Footer";
 import HashScrollHandler from "../components/HashScrollHandler";
 import Grainient from "../components/Grainient";
 import melissaSobreFoto from "../assets/WhatsApp Image 2026-04-22 at 20.25.07.jpeg";
@@ -371,6 +370,15 @@ export default function MelissaPortfolio() {
         </div>
       </section>
 
+      {/* ─────────── PROJETOS (logo após Sobre) ─────────── */}
+      <section
+        id="work"
+        className="relative mt-0 scroll-mt-24 overflow-hidden bg-black px-4 pb-16 pt-10 sm:px-6 sm:pb-20 sm:pt-12 md:px-8 md:pb-24 md:pt-14"
+        aria-labelledby="work-heading"
+      >
+        <MyWork />
+      </section>
+
       {/* ─────────── CERTIFICADOS ─────────── */}
       <motion.section
         id="certificados"
@@ -432,22 +440,6 @@ export default function MelissaPortfolio() {
           </div>
         </div>
       </motion.section>
-
-      {/* ─────────── PROJETOS ─────────── */}
-      <section
-        id="work"
-        className="relative mt-0 scroll-mt-24 bg-black pt-14 sm:pt-16 md:pt-20"
-      >
-        <MyWork />
-      </section>
-
-      {/* ─────────── CONTATO ─────────── */}
-      <section
-        id="contact"
-        className="relative scroll-mt-24 bg-black pt-14 sm:pt-16 md:pt-20"
-      >
-        <Footer />
-      </section>
     </main>
   );
 }

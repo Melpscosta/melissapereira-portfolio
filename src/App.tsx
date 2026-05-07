@@ -9,6 +9,7 @@ import ProjetoMottu from "./Pages/ProjetoMottu";
 import ProjetoAguaViva from "./Pages/ProjetoAguaViva";
 import ProjetoMarcacaoConsultas from "./Pages/ProjetoMarcacaoConsultas";
 import ProjetoDetalhado from "./Pages/ProjetoDetalhado";
+import Footer from "./components/Footer";
 
 export default function App() {
   return (
@@ -16,7 +17,7 @@ export default function App() {
       <ScrollToTop />
       <Header />
 
-      <div className="bg-ink-900 text-white min-h-screen">
+      <div className="min-h-screen bg-black text-white">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projetos" element={<MyWork />} />
@@ -26,6 +27,7 @@ export default function App() {
           <Route path="/projetos/marcacao-de-consultas-medicas" element={<ProjetoMarcacaoConsultas />} />
           <Route path="/projetos/:id" element={<ProjetoDetalhado />} />
         </Routes>
+        <Footer />
       </div>
     </BrowserRouter>
   );
