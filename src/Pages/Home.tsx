@@ -34,15 +34,15 @@ const certificados: Certificado[] = [
     pdf: "/certificados/DesignSystem.pdf",
     descricao:
       "Criação e evolução de sistemas de design: tokens, componentes, documentação e alinhamento entre design e código.",
-    horas: "40 h",
-    instituicao: "FIAP",
+    horas: "8 h",
+    instituicao: "ALURA",
   },
   {
     nome: "Estratégias e Modelos de Negócios",
     pdf: "/certificados/doc.pdf",
     descricao:
       "Visão estratégica de negócios, modelagem de proposta de valor e alinhamento entre produto, mercado e operação.",
-    horas: "40 h",
+    horas: "100 h",
     instituicao: "FIAP",
   },
   {
@@ -50,7 +50,6 @@ const certificados: Certificado[] = [
     pdf: "/certificados/IAQualifiedPratapdf.pdf",
     descricao:
       "Estratégia e inovação tecnológica com aplicações em inteligência artificial e internet das coisas, conectando visão de negócio a soluções reais.",
-    horas: "40 h",
     instituicao: "FIAP",
   },
   {
@@ -58,7 +57,7 @@ const certificados: Certificado[] = [
     pdf: "/certificados/py.pdf",
     descricao:
       "Linguagem Python aplicada a lógica, estruturas de dados e bases para automação e desenvolvimento backend.",
-    horas: "60 h",
+    horas: "80 h",
     instituicao: "FIAP",
   },
   {
@@ -66,21 +65,30 @@ const certificados: Certificado[] = [
     pdf: "/certificados/UIParaDevsAlura.pdf",
     descricao:
       "Interface do ponto de vista do desenvolvedor: hierarquia visual, componentes e consistência na entrega em código.",
-    horas: "18 h",
-    instituicao: "Alura",
+    horas: "8 h",
+    instituicao: "ALURA",
   },
   {
     nome: "User Experience Nano",
     pdf: "/certificados/UserExperienceNano.pdf",
     descricao:
       "Pesquisa com usuários, jornadas, prototipação e usabilidade para projetar experiências digitais centradas na pessoa.",
-    horas: "360 h",
+    horas: "60 h",
     instituicao: "FIAP",
   },
 ];
 
 function tripleCerts(list: Certificado[]) {
   return [...list, ...list, ...list];
+}
+
+/** Faixas com conjuntos diferentes: índices pares × ímpares (sem repetir o mesmo PDF entre fileiras). */
+function splitCertsPorFileira(list: Certificado[]) {
+  const pares = list.filter((_, i) => i % 2 === 0);
+  const impares = list.filter((_, i) => i % 2 === 1);
+  if (impares.length === 0) return { fileira0: list, fileira1: list };
+  if (pares.length === 0) return { fileira0: list, fileira1: list };
+  return { fileira0: pares, fileira1: impares };
 }
 
 function CertMarqueeCard({ c }: { c: Certificado }) {
@@ -164,6 +172,7 @@ function smoothstep(t: number) {
 
 export default function MelissaPortfolio() {
   const [heroDim, setHeroDim] = useState(0);
+  const { fileira0, fileira1 } = splitCertsPorFileira(certificados);
 
   useEffect(() => {
     console.log(
@@ -255,7 +264,7 @@ export default function MelissaPortfolio() {
               animate="show"
               variants={fadeUp}
               transition={{ duration: 0.75, delay: 0.06, ease: [0.22, 1, 0.36, 1] as const }}
-              className="font-ojuju font-bold text-[clamp(2.75rem,10vw,5.5rem)] uppercase leading-[0.98] tracking-[0.02em] text-crimson-500/90"
+              className="type-display-hero"
             >
               Melissa Pereira
             </motion.h1>
@@ -265,7 +274,7 @@ export default function MelissaPortfolio() {
               animate="show"
               variants={fadeUp}
               transition={{ duration: 0.7, delay: 0.18, ease: [0.22, 1, 0.36, 1] as const }}
-              className="font-parkinsans mt-6 max-w-3xl text-[clamp(0.85rem,2.4vw,1.15rem)] font-medium uppercase leading-snug tracking-[0.38em] text-white/70 md:tracking-[0.48em]"
+              className="type-lead mt-6 max-w-3xl"
             >
               Desenvolvedora front-end
             </motion.p>
@@ -321,7 +330,7 @@ export default function MelissaPortfolio() {
           >
             <div className="min-w-0 flex-1 lg:max-w-xl xl:max-w-[28rem]">
               <header>
-                <h2 className="font-parkinsans text-4xl font-extrabold uppercase tracking-wide text-crimson-500 sm:text-5xl">
+                <h2 className="type-section-title">
                   Sobre
                 </h2>
               </header>
@@ -388,7 +397,7 @@ export default function MelissaPortfolio() {
             className="relative z-20 max-w-3xl text-left"
           >
             <header>
-              <h2 className="font-parkinsans text-4xl font-extrabold uppercase tracking-wide text-crimson-500 sm:text-5xl">
+              <h2 className="type-section-title">
                 Certificados
               </h2>
             </header>
@@ -408,14 +417,14 @@ export default function MelissaPortfolio() {
           <div className="space-y-12 py-6 sm:space-y-16 sm:py-8 md:space-y-20 md:py-10">
             <div className="overflow-hidden">
               <div className="cert-marquee-track flex w-max items-center gap-5 px-3 sm:gap-7 sm:px-6 md:gap-9 md:px-10">
-                {tripleCerts(certificados).map((c, index) => (
+                {tripleCerts(fileira0).map((c, index) => (
                   <CertMarqueeCard key={`r0-${c.pdf}-${index}`} c={c} />
                 ))}
               </div>
             </div>
             <div className="overflow-hidden">
               <div className="cert-marquee-track cert-marquee-track--rev flex w-max items-center gap-6 px-4 sm:gap-9 sm:px-8 md:gap-11 md:px-12">
-                {tripleCerts([...certificados.slice(3), ...certificados.slice(0, 3)]).map((c, index) => (
+                {tripleCerts(fileira1).map((c, index) => (
                   <CertMarqueeCard key={`r1-${c.pdf}-${index}`} c={c} />
                 ))}
               </div>

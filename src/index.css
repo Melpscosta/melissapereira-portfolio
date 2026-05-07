@@ -110,6 +110,47 @@ body {
 }
 
 /* ──────────────────────────────────────────────────────────
+   Tipografia do portfólio (hero, páginas de projeto, secções)
+   ────────────────────────────────────────────────────────── */
+@layer components {
+  /* Nome no hero — escala máxima do site */
+  .type-display-hero {
+    @apply font-ojuju font-bold uppercase text-crimson-500/90;
+    font-size: clamp(2.75rem, 10vw, 5.5rem);
+    line-height: 0.98;
+    letter-spacing: 0.02em;
+  }
+  /* Título de página interior (projeto): mesma família/ritmo do hero, escala mais baixa */
+  .type-display-page {
+    @apply font-ojuju font-bold uppercase text-crimson-500/90;
+    font-size: clamp(2rem, 5.5vw, 3.25rem);
+    line-height: 0.98;
+    letter-spacing: 0.02em;
+  }
+  /* Secções — alinhado a Sobre / Certificados / Projetos na Home */
+  .type-section-title {
+    @apply font-parkinsans text-4xl font-extrabold uppercase tracking-wide text-crimson-500 sm:text-5xl;
+  }
+  /* Subtítulo tipo “Desenvolvedora front-end” */
+  .type-lead {
+    @apply font-parkinsans font-medium uppercase leading-snug text-white/70;
+    font-size: clamp(0.85rem, 2.4vw, 1.15rem);
+    letter-spacing: 0.38em;
+  }
+  @media (min-width: 768px) {
+    .type-lead {
+      letter-spacing: 0.48em;
+    }
+  }
+  .type-body {
+    @apply text-[15px] leading-[1.78] text-white/75 sm:text-base;
+  }
+  .projeto-page {
+    @apply min-h-screen scroll-smooth bg-black px-6 pb-24 font-parkinsans text-white;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────
    Animações sutis
    ────────────────────────────────────────────────────────── */
 @keyframes softPulse {
