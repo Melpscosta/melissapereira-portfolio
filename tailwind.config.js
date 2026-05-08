@@ -30,6 +30,8 @@ export default {
         mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
         ojuju: ['Ojuju', 'system-ui', 'sans-serif'],
         parkinsans: ['Parkinsans', 'Inter', 'system-ui', 'sans-serif'],
+        /** Titulares grandes (secções, nomes de projeto) — contraste com Ojuju só no nome do hero */
+        syne: ['Syne', 'Inter', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
         'accent': '0 10px 40px -10px rgba(220,20,60,0.35)',

@@ -22,7 +22,9 @@ export default function ProjetoDetalhado() {
       className="min-h-screen max-w-5xl mx-auto px-6 py-24 text-white"
     >
       {/* Título */}
-      <h1 className="text-4xl font-bold mb-6 text-pink-400">{projeto.titulo}</h1>
+      <h1 className="font-syne text-4xl font-extrabold uppercase tracking-wide text-crimson-500 mb-6 md:text-5xl">
+        {projeto.titulo}
+      </h1>
 
       {/* Imagem principal */}
       {projeto.imagem && (

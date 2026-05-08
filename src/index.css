@@ -120,18 +120,18 @@ body {
     line-height: 0.98;
     letter-spacing: 0.02em;
   }
-  /* Título de página interior (projeto): mesma família/ritmo do hero, escala mais baixa */
+  /* Título de página de projeto (grande, crimson) — Syne, não Ojuju */
   .type-display-page {
-    @apply font-ojuju font-bold uppercase text-crimson-500/90;
+    @apply font-syne font-bold uppercase text-crimson-500/90;
     font-size: clamp(2rem, 5.5vw, 3.25rem);
     line-height: 0.98;
     letter-spacing: 0.02em;
   }
-  /* Secções — alinhado a Sobre / Certificados / Projetos na Home */
+  /* Secções — Sobre / Certificados / Projetos / Contato */
   .type-section-title {
-    @apply font-parkinsans text-4xl font-extrabold uppercase tracking-wide text-crimson-500 sm:text-5xl;
+    @apply font-syne text-4xl font-extrabold uppercase tracking-wide text-crimson-500 sm:text-5xl;
   }
-  /* Subtítulo tipo “Desenvolvedora front-end” */
+  /* Subtítulo hero (“Desenvolvedora front-end”) — Parkinsans */
   .type-lead {
     @apply font-parkinsans font-medium uppercase leading-snug text-white/70;
     font-size: clamp(0.85rem, 2.4vw, 1.15rem);

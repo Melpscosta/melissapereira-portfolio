@@ -87,7 +87,7 @@ const Exp: React.FC<ExpProps> = ({
         transition={{ duration: 0.6 }}
         className="mb-12 max-w-3xl text-left"
       >
-        <h2 className="font-ojuju text-4xl md:text-5xl font-bold uppercase tracking-wide text-crimson-500">
+        <h2 className="font-syne text-4xl md:text-5xl font-bold uppercase tracking-wide text-crimson-500">
           {titulo}
         </h2>
         <p className="mt-4 text-sm text-white/50 md:text-base">

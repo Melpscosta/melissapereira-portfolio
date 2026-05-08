@@ -42,7 +42,7 @@ export default function ProjetoAguaViva() {
         {/* Título grandão alinhado à esquerda */}
         <motion.h1
           {...fadeInUp}
-          className="font-parkinsans mt-6 text-[clamp(2.75rem,6vw,5.5rem)] leading-[0.95] font-extrabold uppercase tracking-wide text-crimson-500 mb-3"
+          className="font-syne mt-6 text-[clamp(2.75rem,6vw,5.5rem)] leading-[0.95] font-extrabold uppercase tracking-wide text-crimson-500 mb-3"
         >
           ÁguaViva
         </motion.h1>
